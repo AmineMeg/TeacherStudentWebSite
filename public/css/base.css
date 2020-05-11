@@ -1,0 +1,568 @@
+html, body
+{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*
+{
+  box-sizing:border-box
+}
+
+body
+{
+  font-family: Verdana,sans-serif;
+  margin:0
+}
+
+#page_entiere
+{
+  align-content:strech;
+  height: 100vh;
+  width: 100vw;
+}
+
+#page_gauche
+{
+  background-color: #252525;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#espace_logo
+{
+  text-align: center;
+  /*background-color: #CCFFFF;*/
+  height: 35%;
+  width: 85%;
+  border-bottom: white solid;
+  border-bottom-width:2px;
+  margin-left:20px;
+  margin-right:20px;
+}
+#espace_profilepic
+{
+  text-align: center;
+  /*background-color: #CCFFFF;*/
+  height: 35%;
+  width: 85%;
+  margin-left:20px;
+  margin-right:20px;
+}
+
+
+/* forme de l'espace de connexion */
+#espace_connexion
+{
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+
+#espace_connexion
+{
+  background-color: #252525;
+  height: 65%;
+  width: 100%;
+}
+
+#mon_compte:hover
+{
+  color:firebrick;
+}
+
+/* liste des catégories sur la page de gauche */
+ul
+{
+  margin-left: 53px;
+  text-decoration: none;
+}
+
+li.icone_profil
+{
+  list-style: square url("/img/account.png");
+  line-height:1em;
+}
+
+li
+{
+  color: whitesmoke;
+  height: 30px;
+}
+
+li:hover
+{
+  color: grey;
+  cursor: pointer;
+}
+
+li.lien_accueil
+{
+  list-style: square url("/img/home.png");
+}
+
+li.lien_accueil:hover
+{
+  list-style: square url("/img/hoome.png");
+}
+
+li.lien_about_us
+{
+  list-style: square url("/img/about.png");
+}
+
+li.lien_about_us:hover
+{
+  list-style: square url("/img/aboout.png");
+}
+
+li.lien_notes
+{
+  list-style: square url("/img/note.png");
+}
+
+li.lien_notes:hover
+{
+  list-style: square url("/img/note.png");
+}
+
+/* forme pour que les liens visités ne changent pas de couleurs */
+
+a
+{
+  text-decoration: none;
+  color: RED;
+}
+
+a :hover, a:active
+{
+    text-decoration: none; color:white;
+}
+
+h3:hover, h3:active
+{
+    text-decoration: none; color:black;    
+}
+
+h3
+{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-align:left;
+  margin-left: 25px;
+  color:darkgray;
+  
+}
+
+
+/* forme de la liste de menu  */
+.liste_menu
+{
+    color: whitesmoke;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-align:left;
+  margin-left:0;
+}
+
+/* forme de l'espace de deconnexion seulement lorsque l'utilisateur est connecté */
+#deconnect
+{
+  position: static;
+  background-color: firebrick;
+  background-image: url('logout.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 42px;;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black;
+}
+
+#deconnect:focus
+{
+  outline:0;
+}
+
+/* forme de l'espace de connexion seulement lorsque l'utilisateur est déconnecté */
+#connect
+{
+  /*position: static;
+  background-image: url('fpp.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  border: none;
+  color: red;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 60px;;
+  font-size: 16px;*/
+  cursor: pointer;
+  /*border-radius: 4px;*/
+  /*box-shadow:  8px 16px 0 black, 0 6px 20px 0 black;*/
+}
+
+#connect:focus
+{
+  outline:0;
+}
+
+/* forme du modal (pop up d'inscription ou de connexion) */
+.modal
+{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 120px; /* Location of the box */
+  left: 30%;
+  right: 0;
+  top: 0;
+  width: 45%; /* Full width */
+  height: 150%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* forme du contenu du modal */
+.modal-content
+{
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop
+{
+  from
+  {
+    top:-300px; opacity:0
+  }
+  to
+  {
+    top:0; opacity:1
+  }
+}
+
+@keyframes animatetop
+{
+  from
+  {
+    top:-300px; opacity:0
+  }
+  to
+  {
+    top:0; opacity:1
+  }
+}
+
+/* forme du header du modal */
+.modal-header
+{
+  height:58px;
+  padding: 1px 13px;
+  background-color: #252525;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* permet de fermer le modal */
+.close
+{
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus
+{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* forme du body du modal */
+.modal-body
+{
+  padding: 2px 16px;
+}
+
+/* forme de l'espace contenant le bouton d'inscription et de connexion */
+.connexion_box
+{
+  border-bottom:solid black;
+  border-bottom-width:2px;
+}
+
+/* forme des titres de connexion ou d'inscription dans le modal */
+h4
+{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  line-height: 32px;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-align:center;
+  margin-left: 25px;
+}
+
+/* forme des boutons d'inscription et de connexion */
+button
+{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 32px;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: 12px 110px;
+  text-align: center;
+  display: inline-block;
+  border-radius:4px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button
+{
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+button:hover
+{
+  background-color: #555555;
+  color: white;
+}
+
+#page_droite
+{
+  overflow:hidden;
+  background: linear-gradient(whitesmoke, #9c9c9c);
+  background-position: right;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* forme de l'espace de titre de la page de droite */
+#espace_titre
+{
+  overflow: hidden;
+}
+
+​#espace_titre
+{
+  height:20px;
+  overflow:hidden;
+}
+
+/* forme du bouton retour en arrière */
+/* permet de revenir à la page visitée précedemment */
+.retour
+{
+  float: right;
+  background-image: url('baack.png');
+  background-position: -1% 1px;
+  background-repeat: no-repeat;
+  padding:4px 0 4px 0;
+  font:bold 14px Arial;
+  color:#555;
+  border-radius:2px;
+  width:100px;
+  border: none;
+  margin-right:10px;
+  margin-top: px;
+}
+
+.retour:focus
+{
+  outline:0;
+}
+
+.retour:hover
+{
+  background-color:whitesmoke;
+}
+
+
+
+
+
+/* forme de l'écriture du titre de l'espace titre de la page de droite */
+h2
+{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-left:15px;
+}
+
+#contenu
+{
+    overflow: scroll;
+      overflow-y:scroll;
+  word-wrap: break-word;
+  bottom:0px;
+
+  height: 100vh;
+  margin:0;
+  padding:0;
+  background-color: whitesmoke;
+}
+
+#box_add_notes
+{
+  background-color:white;
+  height: 600px;
+  margin-left:30px;
+  margin-right:30px;
+}
+
+.box_add_notes{
+  margin-left:8%;
+}
+
+.titre_note
+{
+  background-color:whitesmoke;
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  border-width:2px;
+  border-radius:3px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  box-shadow: 0 4px 8px -3px rgba(0,0,0,0.2), 0 3px 20px -3px rgba(0,0,0,0.19);
+}
+
+.titre_note:hover
+{
+  border: 3px solid #555;
+  border-width:2px;
+}
+
+.boite
+{
+  background-color:whitesmoke;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  border-width:2px;
+  border-radius:3px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  box-shadow: 0 4px 8px -3px rgba(0,0,0,0.2), 0 3px 20px -3px rgba(0,0,0,0.19);
+  overflow: scroll;
+  word-wrap: break-word;
+  bottom:0px;
+  overflow-y:scroll;
+}
+
+.texte_note
+{
+  background-color:whitesmoke;
+  width: 90%;
+  height: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  border-width:2px;
+  border-radius:3px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  box-shadow: 0 4px 8px -3px rgba(0,0,0,0.2), 0 3px 20px -3px rgba(0,0,0,0.19);
+  overflow: scroll;
+  word-wrap: break-word;
+  bottom:0px;
+  overflow-y:scroll;
+}
+
+.texte_note:hover
+{
+  border: 3px solid #555;
+  border-width:2px;
+}
+
+.bouton_validation_note
+{
+  background-color:whitesmoke;
+  height:35px;
+  width:60%;
+  margin-right:0%;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 32px;
+  font-weight: 300;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  border-radius:4px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: black;
+  border: 2px solid #555555;
+}
+
+.bouton_validation_note:hover
+{
+  background-color: #555555;
+  color: white;
+}
+
+p
+{
+    margin-left:15px;
+    white-space: pre-wrap;
+}
+
+footer
+{
+  color: white;
+  background-color: black;
+  clear: left;
+  text-align: center;
+}

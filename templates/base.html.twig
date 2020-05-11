@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+
+      <div id="page_gauche" style="float:left; width:25%;">
+        <div id="espace_logo" style="text-align:center"><img src="/images/logo.png"></div>
+        <br>
+        <div id="espace_profilepic" style="text-align:center"><img id="connect" src="/images/login.png"></div>
+        <div id="espace_connexion">
+          <div id="box_menu">
+            <ul>
+	            <li class="lien_about_us"><a href="/"><h3 class="liste_menu">&nbsp;&nbsp;&nbsp;ABOUT US</h3></a></li>
+              <li class="icone_profil"><a href="/"><h3 id="mon_compte" class="liste_menu">&nbsp;&nbsp;&nbsp;MON COMPTE</h3></a></li>
+              <li class="lien_notes"><a href="/"><h3 class="liste_menu">&nbsp;&nbsp;&nbsp;NOTES</h3></a></li>
+            </ul>
+          </div><br><br>
+
+	 
+          <input id="connect" type="submit" value="  SIGNIN/LOGIN">
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+	  
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3>REJOIGNEZ-NOUS !</h3>
+              </div>
+              <div class="modal-body" style="text-align:center;">
+                <div class="connexion_box"><h4>Déjà  inscrit ? Connectez-vous !</h4><a href="{{path('login')}}"><button type="button">connectez-vous</button></a></br></br></br></div>
+                <div class="inscription_box"><h4>Nouveau ? Créeez votre compte dés maintenant !</h4><a href="{{path('signup')}}"><button type="button">inscrivez-vous</button></a></br></br></br></br></div>
+              </div>
+            </div>
+          </div>
+	        <a href="{{path('logout')}}""><input id="deconnect" type="submit" value="  SE DECONNECTER"></a>
+        
+        </div>
+      </div>
+      {% block body %}
+      {% endblock %}
+
+      {% block javascripts %}
+            <script>
+          var modal = document.getElementById('myModal');
+        var btn = document.getElementById("connect");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+        <script>
+            function goBack() {
+                window.history.back()
+            }
+        </script>
+        {% endblock %}
+    </body>
+</html>
