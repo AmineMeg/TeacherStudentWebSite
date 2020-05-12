@@ -25,39 +25,50 @@ class MoodleController extends AbstractController
     public function index()
     {
         return $this->render('moodle/home.html.twig', [
-            'controller_name' => 'MoodleController',
+            'controller_name' => 'MoodleController'
         ]);
     }
 
     /**
      * @Route("/cours/{id}/createExo", name="createExo")
      */
-    public function createExo(Cours $cours = null, Request $request, EntityManagerInterface $manager){
+    public function createExo(Cours $cours = null, Request $request, EntityManagerInterface $manager, UserInterface $user){
         // $repo = new UserRepository();
         if($cours == NULL){
             return $this->redirectToRoute('createCours');
+        } 
+        if($user == NULL){
+            return $this->redirectToRoute('login');
         } else {
-        
-            $exo = new Exercice();
-            
-            $form = $this->createForm(ExerciceType::class, $exo);
+            $repo = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(User::class);
+                    
+            $found = $repo->findOneBy(array('username' => $user->getUsername()));
+            if ($found->getIsProf()){
+                $exo = new Exercice();
+                
+                $form = $this->createForm(ExerciceType::class, $exo);
 
-            $form->handleRequest($request);
+                $form->handleRequest($request);
 
-            if($form->isSubmitted() && $form->isValid()){
-                $exo->setCreatedAt(new \DateTime());
-                $exo->setEtat(0);
-                $exo->setCours($cours);
-                $manager->persist($exo);
-                $manager->flush(); 
+                if($form->isSubmitted() && $form->isValid()){
+                    $exo->setCreatedAt(new \DateTime());
+                    $exo->setEtat(0);
+                    $exo->setCours($cours);
+                    $manager->persist($exo);
+                    $manager->flush(); 
 
-                return $this->redirectToRoute('modifyExo');
+                    return $this->redirectToRoute('modifyExo', ['idCours' => $cours->getId(), 'idExercice' => $exo->getId()]);
+                }
+                
+                return $this->render('moodle/createExercice.html.twig', [
+                    'form' => $form->createView(),
+                    'titre' => $cours->getTitre()
+                ]);   
+            } else {
+                return $this->redirectToRoute('moodle');
             }
-            
-            return $this->render('moodle/createExercice.html.twig', [
-                'form' => $form->createView(),
-                'titre' => $cours->getTitre()
-            ]);
         }
     }
 
@@ -75,34 +86,36 @@ class MoodleController extends AbstractController
                     ->getRepository(User::class);
                     
             $found = $repo->findOneBy(array('username' => $user->getUsername()));
-        
-            $cours = new Cours();
             
-            $form = $this->createForm(CoursType::class, $cours);
-
-            $form->handleRequest($request);
-
-            if($form->isSubmitted() && $form->isValid()){
-                $cours->setAuteur($found);
-                $manager->persist($cours);
-                $manager->flush(); 
-                return $this->redirectToRoute('createExo', ['id' => $cours->getId()]);
-            }
+            if ($found->getIsProf()){
+                $cours = new Cours();
             
-            return $this->render('moodle/createCours.html.twig', [
-                'form' => $form->createView(),
-            ]);
+                $form = $this->createForm(CoursType::class, $cours);
+
+                $form->handleRequest($request);
+
+                if($form->isSubmitted() && $form->isValid()){
+                    $cours->setAuteur($found);
+                    $manager->persist($cours);
+                    $manager->flush(); 
+                    return $this->redirectToRoute('createExo', ['id' => $cours->getId()]);
+                }
+                
+                return $this->render('moodle/createCours.html.twig', [
+                    'form' => $form->createView(),
+                ]);
+            } else {
+                return $this->redirectToRoute('moodle');
+            }   
         }
     }
 
     /**
-     * @Route("/modifyExo", name="modifyExo")
+     * @Route("cours/{idCours}/{idExercice}/modifyExo", name="modifyExo")
      */
     public function modifyExo(Request $request, EntityManagerInterface $manager)
     {
-        return $this->render('moodle/home.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        return $this->render('moodle/modifyExo.html.twig');
     }
 
     

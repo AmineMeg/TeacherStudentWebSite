@@ -11,6 +11,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'length' => [
                 255,
             ],
+            'unique' => [
+                true,
+            ],
             'groups' => [
                 1 => [
                     'Default',

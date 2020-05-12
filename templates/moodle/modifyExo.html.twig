@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	
+<h4>Demo 2: hidden move up/down buttons</h4>
+
+<p>
+	Just create any invisible container with
+	<code>collection-up</code>
+	and
+	<code>collection-down</code>
+	in
+	                your form theme or explicitely display:none those css classes.
+</p>
+
+<form name="nobuttons" method="post" action="" role="form">
+	<div id="nobuttons">
+		<div class="form-group">
+			<label class="control-label">Add, move, remove values and press Submit.</label>
+			<div id="nobuttons_values" class="nobuttons-collection" data-prototype="    &lt;div class=&quot;form-group&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-md-5&quot;&gt;&lt;input type=&quot;text&quot;     id=&quot;nobuttons_values___name___value&quot; name=&quot;nobuttons[values][__name__][value]&quot;         class=&quot;form-control&quot; &gt;&lt;/div&gt;&lt;div class=&quot;col-md-3&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;collection-up btn btn-default&quot; title=&quot;Move element up&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-arrow-up&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;collection-down btn btn-default&quot; title=&quot;Move element down&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-arrow-down&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;col-md-3&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;collection-remove btn btn-default&quot; title=&quot;Delete element&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-trash&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;collection-add btn btn-default&quot; title=&quot;Add element&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-plus-sign&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;col-md-1&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;collection-duplicate btn btn-default&quot; title=&quot;Duplicate element&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-th-large&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" data-prototype-name="__name__" data-allow-add="1" data-allow-remove="1" data-name-prefix="nobuttons[values]">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-5"><input type="text" id="nobuttons_values_0_value" name="nobuttons[values][0][value]" class="form-control" value="a"></div>
+						<div class="col-md-3">
+							<a href="#" class="collection-up btn btn-default" title="Move element up">
+								<span class="glyphicon glyphicon-arrow-up"></span>
+							</a>
+							<a href="#" class="collection-down btn btn-default" title="Move element down">
+								<span class="glyphicon glyphicon-arrow-down"></span>
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="#" class="collection-remove btn btn-default" title="Delete element">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a>
+							<a href="#" class="collection-add btn btn-default" title="Add element">
+								<span class="glyphicon glyphicon-plus-sign"></span>
+							</a>
+						</div>
+						<div class="col-md-1">
+							<a href="#" class="collection-duplicate btn btn-default" title="Duplicate element">
+								<span class="glyphicon glyphicon-th-large"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-5"><input type="text" id="nobuttons_values_1_value" name="nobuttons[values][1][value]" class="form-control" value="b"></div>
+						<div class="col-md-3">
+							<a href="#" class="collection-up btn btn-default" title="Move element up">
+								<span class="glyphicon glyphicon-arrow-up"></span>
+							</a>
+							<a href="#" class="collection-down btn btn-default" title="Move element down">
+								<span class="glyphicon glyphicon-arrow-down"></span>
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="#" class="collection-remove btn btn-default" title="Delete element">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a>
+							<a href="#" class="collection-add btn btn-default" title="Add element">
+								<span class="glyphicon glyphicon-plus-sign"></span>
+							</a>
+						</div>
+						<div class="col-md-1">
+							<a href="#" class="collection-duplicate btn btn-default" title="Duplicate element">
+								<span class="glyphicon glyphicon-th-large"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-5"><input type="text" id="nobuttons_values_2_value" name="nobuttons[values][2][value]" class="form-control" value="c"></div>
+						<div class="col-md-3">
+							<a href="#" class="collection-up btn btn-default" title="Move element up">
+								<span class="glyphicon glyphicon-arrow-up"></span>
+							</a>
+							<a href="#" class="collection-down btn btn-default" title="Move element down">
+								<span class="glyphicon glyphicon-arrow-down"></span>
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="#" class="collection-remove btn btn-default" title="Delete element">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a>
+							<a href="#" class="collection-add btn btn-default" title="Add element">
+								<span class="glyphicon glyphicon-plus-sign"></span>
+							</a>
+						</div>
+						<div class="col-md-1">
+							<a href="#" class="collection-duplicate btn btn-default" title="Duplicate element">
+								<span class="glyphicon glyphicon-th-large"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submit" id="nobuttons_submit" name="nobuttons[submit]" class="btn btn-primary">Submit</button>
+		</div><input type="hidden" id="nobuttons__token" name="nobuttons[_token]" class="form-control" value="tngzjBoQS3sgLRoHmVug_0WJ_nII8tqez8baXOl32lY"></div>
+</form>
+
+<hr/>
+
+<p>Value : a</p>
+<p>Value : b</p>
+<p>Value : c</p>
+
+<hr/>
+
+<style>
+	.nobuttons-collection .collection-up,
+	.nobuttons-collection .collection-down {
+		display: none;
+	}
+</style>
+
+<script type="text/javascript">
+
+	$('.nobuttons-collection').collection({up: '<div style="display:none;"></div>', down: '<div style="display:none;"></div>'});
+</script>
+
+{% endblock %}

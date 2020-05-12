@@ -348,6 +348,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\SolutionRepository" class="App\Repository\SolutionRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3440,7 +3444,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.m0bowtY"/>
+      <argument type="service" id=".service_locator.TIzX_Ch"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4768,6 +4772,8 @@
     <service id=".abstract.instanceof.App\Repository\ExerciceRepository" class="App\Repository\ExerciceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LigneRepository" class="App\Repository\LigneRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LigneRepository" class="App\Repository\LigneRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SolutionRepository" class="App\Repository\SolutionRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SolutionRepository" class="App\Repository\SolutionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4980,10 +4986,11 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.XLiN3OS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.vxxfDsi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="user" type="service" id=".errored..service_locator.vxxfDsi.Symfony\Component\Security\Core\User\UserInterface"/>
       </argument>
     </service>
     <service id=".service_locator.QGMzNla" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5006,15 +5013,15 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.ezijvqn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.q6slZvh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MoodleController::createCours" type="service" id=".service_locator.QGMzNla"/>
-        <argument key="App\Controller\MoodleController::createExo" type="service" id=".service_locator.XLiN3OS"/>
+        <argument key="App\Controller\MoodleController::createExo" type="service" id=".service_locator.vxxfDsi"/>
         <argument key="App\Controller\MoodleController::modifyExo" type="service" id=".service_locator.VXxFWvL"/>
         <argument key="App\Controller\SecurityController::signUp" type="service" id=".service_locator.0A7tWdp"/>
         <argument key="App\Controller\MoodleController:createCours" type="service" id=".service_locator.QGMzNla"/>
-        <argument key="App\Controller\MoodleController:createExo" type="service" id=".service_locator.XLiN3OS"/>
+        <argument key="App\Controller\MoodleController:createExo" type="service" id=".service_locator.vxxfDsi"/>
         <argument key="App\Controller\MoodleController:modifyExo" type="service" id=".service_locator.VXxFWvL"/>
         <argument key="App\Controller\SecurityController:signUp" type="service" id=".service_locator.0A7tWdp"/>
       </argument>
@@ -5103,12 +5110,13 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.m0bowtY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.TIzX_Ch" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CoursRepository" type="service" id="App\Repository\CoursRepository"/>
         <argument key="App\Repository\ExerciceRepository" type="service" id="App\Repository\ExerciceRepository"/>
         <argument key="App\Repository\LigneRepository" type="service" id="App\Repository\LigneRepository"/>
+        <argument key="App\Repository\SolutionRepository" type="service" id="App\Repository\SolutionRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -5459,12 +5467,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.ezijvqn"/>
+      <argument type="service" id=".service_locator.q6slZvh"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.ezijvqn"/>
+      <argument type="service" id=".service_locator.q6slZvh"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5474,6 +5482,7 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.vxxfDsi.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id=".errored..service_locator.QGMzNla.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.xJuCTRo"/>
@@ -5849,7 +5858,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ezijvqn"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.q6slZvh"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

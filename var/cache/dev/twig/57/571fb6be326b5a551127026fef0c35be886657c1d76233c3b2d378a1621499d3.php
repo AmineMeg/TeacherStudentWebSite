@@ -46,74 +46,97 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         // line 1
         echo "<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>";
-        // line 5
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-        ";
+\t<head>
+\t\t<meta charset=\"UTF-8\">
+\t\t<title>
+\t\t\t";
         // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
+        $this->displayBlock('title', $context, $blocks);
+        // line 8
+        echo "\t\t</title>
+\t\t";
         // line 9
-        echo "    </head>
-    <body>
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 12
+        echo "\t</head>
+\t<body>
 
-      <div id=\"page_gauche\" style=\"float:left; width:25%;\">
-        <div id=\"espace_logo\" style=\"text-align:center\"><img src=\"/images/logo.png\"></div>
-        <br>
-        <div id=\"espace_profilepic\" style=\"text-align:center\"><img id=\"connect\" src=\"/images/login.png\"></div>
-        <div id=\"espace_connexion\">
-          <div id=\"box_menu\">
-            <ul>
-\t            <li class=\"lien_about_us\"><a href=\"/\"><h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;ABOUT US</h3></a></li>
-              <li class=\"icone_profil\"><a href=\"/\"><h3 id=\"mon_compte\" class=\"liste_menu\">&nbsp;&nbsp;&nbsp;MON COMPTE</h3></a></li>
-              <li class=\"lien_notes\"><a href=\"/\"><h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;NOTES</h3></a></li>
-            </ul>
-          </div><br><br>
+\t\t<div id=\"page_gauche\" style=\"float:left; width:25%;\">
+\t\t\t<div id=\"espace_logo\" style=\"text-align:center\"><img src=\"/images/logo.png\"></div>
+\t\t\t<br>
+\t\t\t<div id=\"espace_profilepic\" style=\"text-align:center\"><img id=\"connect\" src=\"/images/login.png\"></div>
+\t\t\t<div id=\"espace_connexion\">
+\t\t\t\t<div id=\"box_menu\">
+\t\t\t\t\t<ul>
+\t\t\t\t\t\t<li class=\"lien_about_us\">
+\t\t\t\t\t\t\t<a href=\"/\">
+\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;ABOUT US</h3>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li class=\"icone_profil\">
+\t\t\t\t\t\t\t<a href=\"/\">
+\t\t\t\t\t\t\t\t<h3 id=\"mon_compte\" class=\"liste_menu\">&nbsp;&nbsp;&nbsp;MON COMPTE</h3>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li class=\"lien_notes\">
+\t\t\t\t\t\t\t<a href=\"";
+        // line 33
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("createCours");
+        echo "\">
+\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;Cours</h3>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t</ul>
+\t\t\t\t</div><br><br>
 
-\t 
-          <input id=\"connect\" type=\"submit\" value=\"  SIGNIN/LOGIN\">
 
-          <!-- The Modal -->
-          <div id=\"myModal\" class=\"modal\">
-\t  
-            <!-- Modal content -->
-            <div class=\"modal-content\">
-              <div class=\"modal-header\">
-                <span class=\"close\">&times;</span>
-                <h3>REJOIGNEZ-NOUS !</h3>
-              </div>
-              <div class=\"modal-body\" style=\"text-align:center;\">
-                <div class=\"connexion_box\"><h4>Déjà  inscrit ? Connectez-vous !</h4><a href=\"";
-        // line 38
+\t\t\t\t\t<input
+\t\t\t\t\tid=\"connect\" type=\"submit\" value=\"  SIGNIN/LOGIN\">
+
+\t\t\t\t\t<!-- The Modal -->
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"myModal\" class=\"modal\">
+
+\t\t\t\t\t\t<!-- Modal content -->
+\t\t\t\t\t\t<div class=\"modal-content\">
+\t\t\t\t\t\t\t<div class=\"modal-header\">
+\t\t\t\t\t\t\t\t<span class=\"close\">&times;</span>
+\t\t\t\t\t\t\t\t<h3>REJOIGNEZ-NOUS !</h3>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<div class=\"modal-body\" style=\"text-align:center;\">
+\t\t\t\t\t\t\t\t<div class=\"connexion_box\">
+\t\t\t\t\t\t\t\t\t<h4>Déjà  inscrit ? Connectez-vous !</h4>
+\t\t\t\t\t\t\t\t\t<a href=\"";
+        // line 57
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\"><button type=\"button\">connectez-vous</button></a></br></br></br></div>
-                <div class=\"inscription_box\"><h4>Nouveau ? Créeez votre compte dés maintenant !</h4><a href=\"";
-        // line 39
+        echo "\">
+\t\t\t\t\t\t\t\t\t\t<button type=\"button\">connectez-vous</button>
+\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t</br>
+\t\t\t\t\t\t\t</br>
+\t\t\t\t\t\t</br>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"inscription_box\">
+\t\t\t\t\t\t<h4>Nouveau ? Créeez votre compte dés maintenant !</h4>
+\t\t\t\t\t\t<a href=\"";
+        // line 66
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("signup");
-        echo "\"><button type=\"button\">inscrivez-vous</button></a></br></br></br></br></div>
-              </div>
-            </div>
-          </div>
-\t        <a href=\"";
-        // line 43
+        echo "\">
+\t\t\t\t\t\t\t<button type=\"button\">inscrivez-vous</button>
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</br>
+\t\t\t\t</br>
+\t\t\t</br>
+\t\t</body>
+\t</html>
+</br></div></div></div></div><a href=\"";
+        // line 74
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-        echo "\"\"><input id=\"deconnect\" type=\"submit\" value=\"  SE DECONNECTER\"></a>
-        
-        </div>
-      </div>
-      ";
-        // line 47
+        echo "\" \"><input id=\"deconnect\" type=\"submit\" value=\"  SE DECONNECTER\"></a></div></div>";
         $this->displayBlock('body', $context, $blocks);
-        // line 49
-        echo "
-      ";
-        // line 50
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 73
-        echo "    </body>
-</html>
+        // line 89
+        echo "</body></html>
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -123,7 +146,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 5
+    // line 6
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -133,7 +156,8 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "Welcome!
+\t\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -142,7 +166,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 6
+    // line 9
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -152,11 +176,11 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 7
-        echo "            <link rel=\"stylesheet\" type=\"text/css\" href=\"";
+        // line 10
+        echo "\t\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/base.css"), "html", null, true);
         echo "\">
-        ";
+\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -165,7 +189,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 47
+    // line 74
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -175,8 +199,6 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 48
-        echo "      ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -185,7 +207,6 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 50
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -195,29 +216,22 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 51
-        echo "            <script>
-          var modal = document.getElementById('myModal');
-        var btn = document.getElementById(\"connect\");
-        var span = document.getElementsByClassName(\"close\")[0];
-        btn.onclick = function() {
-          modal.style.display = \"block\";
-        }
-        span.onclick = function() {
-          modal.style.display = \"none\";
-        }
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = \"none\";
-          }
-        }
-        </script>
-        <script>
-            function goBack() {
-                window.history.back()
-            }
-        </script>
-        ";
+        echo "<script>var modal = document.getElementById('myModal');
+var btn = document.getElementById(\"connect\");
+var span = document.getElementsByClassName(\"close\")[0];
+btn.onclick = function () {
+modal.style.display = \"block\";
+}
+span.onclick = function () {
+modal.style.display = \"none\";
+}
+window.onclick = function (event) {
+if (event.target == modal) {
+modal.style.display = \"none\";
+}
+}</script><script>function goBack() {
+window.history.back()
+}</script>";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -238,85 +252,100 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     public function getDebugInfo()
     {
-        return array (  199 => 51,  189 => 50,  179 => 48,  169 => 47,  156 => 7,  146 => 6,  127 => 5,  115 => 73,  113 => 50,  110 => 49,  108 => 47,  101 => 43,  94 => 39,  90 => 38,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  193 => 74,  180 => 10,  170 => 9,  150 => 6,  139 => 89,  134 => 74,  123 => 66,  111 => 57,  84 => 33,  61 => 12,  59 => 9,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('css/base.css') }}\">
-        {% endblock %}
-    </head>
-    <body>
+\t<head>
+\t\t<meta charset=\"UTF-8\">
+\t\t<title>
+\t\t\t{% block title %}Welcome!
+\t\t\t{% endblock %}
+\t\t</title>
+\t\t{% block stylesheets %}
+\t\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('css/base.css') }}\">
+\t\t{% endblock %}
+\t</head>
+\t<body>
 
-      <div id=\"page_gauche\" style=\"float:left; width:25%;\">
-        <div id=\"espace_logo\" style=\"text-align:center\"><img src=\"/images/logo.png\"></div>
-        <br>
-        <div id=\"espace_profilepic\" style=\"text-align:center\"><img id=\"connect\" src=\"/images/login.png\"></div>
-        <div id=\"espace_connexion\">
-          <div id=\"box_menu\">
-            <ul>
-\t            <li class=\"lien_about_us\"><a href=\"/\"><h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;ABOUT US</h3></a></li>
-              <li class=\"icone_profil\"><a href=\"/\"><h3 id=\"mon_compte\" class=\"liste_menu\">&nbsp;&nbsp;&nbsp;MON COMPTE</h3></a></li>
-              <li class=\"lien_notes\"><a href=\"/\"><h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;NOTES</h3></a></li>
-            </ul>
-          </div><br><br>
+\t\t<div id=\"page_gauche\" style=\"float:left; width:25%;\">
+\t\t\t<div id=\"espace_logo\" style=\"text-align:center\"><img src=\"/images/logo.png\"></div>
+\t\t\t<br>
+\t\t\t<div id=\"espace_profilepic\" style=\"text-align:center\"><img id=\"connect\" src=\"/images/login.png\"></div>
+\t\t\t<div id=\"espace_connexion\">
+\t\t\t\t<div id=\"box_menu\">
+\t\t\t\t\t<ul>
+\t\t\t\t\t\t<li class=\"lien_about_us\">
+\t\t\t\t\t\t\t<a href=\"/\">
+\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;ABOUT US</h3>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li class=\"icone_profil\">
+\t\t\t\t\t\t\t<a href=\"/\">
+\t\t\t\t\t\t\t\t<h3 id=\"mon_compte\" class=\"liste_menu\">&nbsp;&nbsp;&nbsp;MON COMPTE</h3>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t\t<li class=\"lien_notes\">
+\t\t\t\t\t\t\t<a href=\"{{path('createCours')}}\">
+\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;Cours</h3>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t</ul>
+\t\t\t\t</div><br><br>
 
-\t 
-          <input id=\"connect\" type=\"submit\" value=\"  SIGNIN/LOGIN\">
 
-          <!-- The Modal -->
-          <div id=\"myModal\" class=\"modal\">
-\t  
-            <!-- Modal content -->
-            <div class=\"modal-content\">
-              <div class=\"modal-header\">
-                <span class=\"close\">&times;</span>
-                <h3>REJOIGNEZ-NOUS !</h3>
-              </div>
-              <div class=\"modal-body\" style=\"text-align:center;\">
-                <div class=\"connexion_box\"><h4>Déjà  inscrit ? Connectez-vous !</h4><a href=\"{{path('login')}}\"><button type=\"button\">connectez-vous</button></a></br></br></br></div>
-                <div class=\"inscription_box\"><h4>Nouveau ? Créeez votre compte dés maintenant !</h4><a href=\"{{path('signup')}}\"><button type=\"button\">inscrivez-vous</button></a></br></br></br></br></div>
-              </div>
-            </div>
-          </div>
-\t        <a href=\"{{path('logout')}}\"\"><input id=\"deconnect\" type=\"submit\" value=\"  SE DECONNECTER\"></a>
-        
-        </div>
-      </div>
-      {% block body %}
-      {% endblock %}
+\t\t\t\t\t<input
+\t\t\t\t\tid=\"connect\" type=\"submit\" value=\"  SIGNIN/LOGIN\">
 
-      {% block javascripts %}
-            <script>
-          var modal = document.getElementById('myModal');
-        var btn = document.getElementById(\"connect\");
-        var span = document.getElementsByClassName(\"close\")[0];
-        btn.onclick = function() {
-          modal.style.display = \"block\";
-        }
-        span.onclick = function() {
-          modal.style.display = \"none\";
-        }
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = \"none\";
-          }
-        }
-        </script>
-        <script>
-            function goBack() {
-                window.history.back()
-            }
-        </script>
-        {% endblock %}
-    </body>
-</html>
+\t\t\t\t\t<!-- The Modal -->
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"myModal\" class=\"modal\">
+
+\t\t\t\t\t\t<!-- Modal content -->
+\t\t\t\t\t\t<div class=\"modal-content\">
+\t\t\t\t\t\t\t<div class=\"modal-header\">
+\t\t\t\t\t\t\t\t<span class=\"close\">&times;</span>
+\t\t\t\t\t\t\t\t<h3>REJOIGNEZ-NOUS !</h3>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<div class=\"modal-body\" style=\"text-align:center;\">
+\t\t\t\t\t\t\t\t<div class=\"connexion_box\">
+\t\t\t\t\t\t\t\t\t<h4>Déjà  inscrit ? Connectez-vous !</h4>
+\t\t\t\t\t\t\t\t\t<a href=\"{{path('login')}}\">
+\t\t\t\t\t\t\t\t\t\t<button type=\"button\">connectez-vous</button>
+\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t</br>
+\t\t\t\t\t\t\t</br>
+\t\t\t\t\t\t</br>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"inscription_box\">
+\t\t\t\t\t\t<h4>Nouveau ? Créeez votre compte dés maintenant !</h4>
+\t\t\t\t\t\t<a href=\"{{path('signup')}}\">
+\t\t\t\t\t\t\t<button type=\"button\">inscrivez-vous</button>
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</br>
+\t\t\t\t</br>
+\t\t\t</br>
+\t\t</body>
+\t</html>
+</br></div></div></div></div><a href=\"{{path('logout')}}\" \"><input id=\"deconnect\" type=\"submit\" value=\"  SE DECONNECTER\"></a></div></div>{% block body %}{% endblock %}{% block javascripts %}<script>var modal = document.getElementById('myModal');
+var btn = document.getElementById(\"connect\");
+var span = document.getElementsByClassName(\"close\")[0];
+btn.onclick = function () {
+modal.style.display = \"block\";
+}
+span.onclick = function () {
+modal.style.display = \"none\";
+}
+window.onclick = function (event) {
+if (event.target == modal) {
+modal.style.display = \"none\";
+}
+}</script><script>function goBack() {
+window.history.back()
+}</script>{% endblock %}</body></html>
 ", "base.html.twig", "C:\\Users\\kreek\\OneDrive\\Documents\\Cours\\2019\\S6\\PrograWeb\\ProjetFinal\\Moodle\\templates\\base.html.twig");
     }
 }
