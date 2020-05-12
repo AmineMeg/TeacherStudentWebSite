@@ -152,9 +152,15 @@ class User implements UserInterface
      */
     private $exercices;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Cours", mappedBy="auteur", orphanRemoval=true)
+     */
+    private $cours;
+
     public function __construct()
     {
         $this->exercices = new ArrayCollection();
+        $this->cours = new ArrayCollection();
     }
 
     public function eraseCredentials(){}
@@ -190,6 +196,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($exercice->getAuteur() === $this) {
                 $exercice->setAuteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cours[]
+     */
+    public function getCours(): Collection
+    {
+        return $this->cours;
+    }
+
+    public function addCour(Cours $cour): self
+    {
+        if (!$this->cours->contains($cour)) {
+            $this->cours[] = $cour;
+            $cour->setAuteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCour(Cours $cour): self
+    {
+        if ($this->cours->contains($cour)) {
+            $this->cours->removeElement($cour);
+            // set the owning side to null (unless already changed)
+            if ($cour->getAuteur() === $this) {
+                $cour->setAuteur(null);
             }
         }
 

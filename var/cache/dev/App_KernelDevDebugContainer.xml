@@ -321,6 +321,9 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Form\CoursType" class="App\Form\CoursType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ExerciceType" class="App\Form\ExerciceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -333,15 +336,15 @@
     <service id="App\Form\SolutionType" class="App\Form\SolutionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Repository\CoursRepository" class="App\Repository\CoursRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\ExerciceRepository" class="App\Repository\ExerciceRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\LigneRepository" class="App\Repository\LigneRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\SolutionRepository" class="App\Repository\SolutionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -749,6 +752,7 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\CoursType</argument>
         <argument>App\Form\ExerciceType</argument>
         <argument>App\Form\LigneType</argument>
         <argument>App\Form\SignUpType</argument>
@@ -1077,7 +1081,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.nb0w286"/>
+      <argument type="service" id=".service_locator..T6ZEk1"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3436,7 +3440,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Sn.1D9P"/>
+      <argument type="service" id=".service_locator.m0bowtY"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4748,6 +4752,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CoursType" class="App\Form\CoursType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CoursType" class="App\Form\CoursType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ExerciceType" class="App\Form\ExerciceType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ExerciceType" class="App\Form\ExerciceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LigneType" class="App\Form\LigneType" autowire="true" abstract="true"/>
@@ -4756,12 +4762,12 @@
     <service id=".abstract.instanceof.App\Form\SignUpType" class="App\Form\SignUpType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SolutionType" class="App\Form\SolutionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SolutionType" class="App\Form\SolutionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CoursRepository" class="App\Repository\CoursRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CoursRepository" class="App\Repository\CoursRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ExerciceRepository" class="App\Repository\ExerciceRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ExerciceRepository" class="App\Repository\ExerciceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LigneRepository" class="App\Repository\LigneRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LigneRepository" class="App\Repository\LigneRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SolutionRepository" class="App\Repository\SolutionRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\SolutionRepository" class="App\Repository\SolutionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4974,6 +4980,12 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.XLiN3OS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.QGMzNla" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4994,13 +5006,15 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.D2VDY1C" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ezijvqn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\MoodleController::createExo" type="service" id=".service_locator.QGMzNla"/>
+        <argument key="App\Controller\MoodleController::createCours" type="service" id=".service_locator.QGMzNla"/>
+        <argument key="App\Controller\MoodleController::createExo" type="service" id=".service_locator.XLiN3OS"/>
         <argument key="App\Controller\MoodleController::modifyExo" type="service" id=".service_locator.VXxFWvL"/>
         <argument key="App\Controller\SecurityController::signUp" type="service" id=".service_locator.0A7tWdp"/>
-        <argument key="App\Controller\MoodleController:createExo" type="service" id=".service_locator.QGMzNla"/>
+        <argument key="App\Controller\MoodleController:createCours" type="service" id=".service_locator.QGMzNla"/>
+        <argument key="App\Controller\MoodleController:createExo" type="service" id=".service_locator.XLiN3OS"/>
         <argument key="App\Controller\MoodleController:modifyExo" type="service" id=".service_locator.VXxFWvL"/>
         <argument key="App\Controller\SecurityController:signUp" type="service" id=".service_locator.0A7tWdp"/>
       </argument>
@@ -5064,9 +5078,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.nb0w286" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator..T6ZEk1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\CoursType" type="service" id="App\Form\CoursType"/>
         <argument key="App\Form\ExerciceType" type="service" id="App\Form\ExerciceType"/>
         <argument key="App\Form\LigneType" type="service" id="App\Form\LigneType"/>
         <argument key="App\Form\SignUpType" type="service" id="App\Form\SignUpType"/>
@@ -5088,12 +5103,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Sn.1D9P" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.m0bowtY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\CoursRepository" type="service" id="App\Repository\CoursRepository"/>
         <argument key="App\Repository\ExerciceRepository" type="service" id="App\Repository\ExerciceRepository"/>
         <argument key="App\Repository\LigneRepository" type="service" id="App\Repository\LigneRepository"/>
-        <argument key="App\Repository\SolutionRepository" type="service" id="App\Repository\SolutionRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -5444,12 +5459,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.D2VDY1C"/>
+      <argument type="service" id=".service_locator.ezijvqn"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.D2VDY1C"/>
+      <argument type="service" id=".service_locator.ezijvqn"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5834,7 +5849,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.D2VDY1C"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ezijvqn"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

@@ -34,10 +34,10 @@ class Exercice
     private $etat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="exercices")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cours", inversedBy="exercices")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $auteur;
+    private $cours;
 
     /**
      * @ORM\Column(type="datetime")
@@ -54,15 +54,9 @@ class Exercice
      */
     private $lignes;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Solution", mappedBy="exercice", orphanRemoval=true)
-     */
-    private $solutions;
-
     public function __construct()
     {
         $this->lignes = new ArrayCollection();
-        $this->solutions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,14 +100,14 @@ class Exercice
         return $this;
     }
 
-    public function getAuteur(): ?User
+    public function getCours(): ?Cours
     {
-        return $this->auteur;
+        return $this->cours;
     }
 
-    public function setAuteur(?User $auteur): self
+    public function setCours(?Cours $cours): self
     {
-        $this->auteur = $auteur;
+        $this->cours = $cours;
 
         return $this;
     }
@@ -167,37 +161,6 @@ class Exercice
             // set the owning side to null (unless already changed)
             if ($ligne->getExercice() === $this) {
                 $ligne->setExercice(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Solution[]
-     */
-    public function getSolutions(): Collection
-    {
-        return $this->solutions;
-    }
-
-    public function addSolution(Solution $solution): self
-    {
-        if (!$this->solutions->contains($solution)) {
-            $this->solutions[] = $solution;
-            $solution->setExercice($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSolution(Solution $solution): self
-    {
-        if ($this->solutions->contains($solution)) {
-            $this->solutions->removeElement($solution);
-            // set the owning side to null (unless already changed)
-            if ($solution->getExercice() === $this) {
-                $solution->setExercice(null);
             }
         }
 

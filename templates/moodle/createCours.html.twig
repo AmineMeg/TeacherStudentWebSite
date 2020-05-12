@@ -6,8 +6,7 @@
 		<div id="page_droite" style="float:right; width:75%;">
 			<div id="espace_titre" data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
 				<input class="retour" type="button" value="     RETOUR" onclick="goBack()">
-				<h2>Créer un nouvel exercice dans le cours : 
-				{{titre}}!</h2>
+				<h2>Créer un nouveuc Cours!</h2>
 			</div>
 			<div id="contenu_exercice_1">
 
@@ -18,14 +17,14 @@
 					{{form_row (form.titre, {
                 'label': 'Titre de l\'exercice',
                 'attr':{
-                    'placeholder' : 'Une titre accrocheur ?' 
+                    'placeholder' : 'Un titre sympa ?' 
                     }
                 })}}
 
-					{{form_row (form.enonce, {
-                    'label': 'Enoncé',
+					{{form_row (form.description, {
+                    'label': 'Description',
                     'attr':{
-                        'placeholder' : 'Alors la c\'est freestyle' 
+                        'placeholder' : 'Decrivez votre cours' 
                         }
                     })}}
 

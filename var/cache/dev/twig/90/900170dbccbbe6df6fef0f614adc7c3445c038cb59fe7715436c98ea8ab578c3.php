@@ -70,35 +70,39 @@ class __TwigTemplate_0946150a3695d06afea5d9b2398a494e7f347bb4bcb43629dd2b0d4554d
 \t\t<div id=\"page_droite\" style=\"float:right; width:75%;\">
 \t\t\t<div id=\"espace_titre\" data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\" data-update-page-padding=\"false\">
 \t\t\t\t<input class=\"retour\" type=\"button\" value=\"     RETOUR\" onclick=\"goBack()\">
-\t\t\t\t<h2>Créer un nouvel exercice!</h2>
+\t\t\t\t<h2>Créer un nouvel exercice dans le cours : 
+\t\t\t\t";
+        // line 10
+        echo twig_escape_filter($this->env, (isset($context["titre"]) || array_key_exists("titre", $context) ? $context["titre"] : (function () { throw new RuntimeError('Variable "titre" does not exist.', 10, $this->source); })()), "html", null, true);
+        echo "!</h2>
 \t\t\t</div>
 \t\t\t<div id=\"contenu_exercice_1\">
 
 \t\t\t\t<div id=\"formulaire_creation_exercice\" align=\"center\">
 
 \t\t\t\t\t";
-        // line 15
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_start');
+        // line 16
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'form_start');
         echo "
 
 \t\t\t\t\t";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "titre", [], "any", false, false, false, 17), 'row', ["label" => "Titre de l'exercice", "attr" => ["placeholder" => "Une titre accrocheur ?"]]);
-        // line 22
+        // line 18
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), "titre", [], "any", false, false, false, 18), 'row', ["label" => "Titre de l'exercice", "attr" => ["placeholder" => "Une titre accrocheur ?"]]);
+        // line 23
         echo "
 
 \t\t\t\t\t";
-        // line 24
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 24, $this->source); })()), "enonce", [], "any", false, false, false, 24), 'row', ["label" => "Enoncé", "attr" => ["placeholder" => "Alors la c'est freestyle"]]);
-        // line 29
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "enonce", [], "any", false, false, false, 25), 'row', ["label" => "Enoncé", "attr" => ["placeholder" => "Alors la c'est freestyle"]]);
+        // line 30
         echo "
 
 \t\t\t\t\t<button type=\"submit\" class=\"btn btn-succes\">
 \t\t\t\t\t\tEnregistrer</button>
 
 \t\t\t\t\t";
-        // line 34
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 34, $this->source); })()), 'form_end');
+        // line 35
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), 'form_end');
         echo "
 \t\t\t\t</div>
 \t\t\t</div>
@@ -125,7 +129,7 @@ class __TwigTemplate_0946150a3695d06afea5d9b2398a494e7f347bb4bcb43629dd2b0d4554d
 
     public function getDebugInfo()
     {
-        return array (  101 => 34,  94 => 29,  92 => 24,  88 => 22,  86 => 17,  81 => 15,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  105 => 35,  98 => 30,  96 => 25,  92 => 23,  90 => 18,  85 => 16,  76 => 10,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -138,7 +142,8 @@ class __TwigTemplate_0946150a3695d06afea5d9b2398a494e7f347bb4bcb43629dd2b0d4554d
 \t\t<div id=\"page_droite\" style=\"float:right; width:75%;\">
 \t\t\t<div id=\"espace_titre\" data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\" data-update-page-padding=\"false\">
 \t\t\t\t<input class=\"retour\" type=\"button\" value=\"     RETOUR\" onclick=\"goBack()\">
-\t\t\t\t<h2>Créer un nouvel exercice!</h2>
+\t\t\t\t<h2>Créer un nouvel exercice dans le cours : 
+\t\t\t\t{{titre}}!</h2>
 \t\t\t</div>
 \t\t\t<div id=\"contenu_exercice_1\">
 
