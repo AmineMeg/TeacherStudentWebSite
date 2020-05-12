@@ -101,8 +101,14 @@ class MoodleController extends AbstractController
                     return $this->redirectToRoute('createExo', ['id' => $cours->getId()]);
                 }
                 
+                $repo_cours = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(Cours::class)
+                    ->findAll();
+
                 return $this->render('moodle/createCours.html.twig', [
                     'form' => $form->createView(),
+                    'courss' => $repo_cours
                 ]);
             } else {
                 return $this->redirectToRoute('moodle');
@@ -117,6 +123,22 @@ class MoodleController extends AbstractController
     {
         return $this->render('moodle/modifyExo.html.twig');
     }
+
+    /**
+     * @Route("cours/{idCours}", name="unCours")
+     */
+    public function unCours(int $idCours, Request $request, EntityManagerInterface $manager)
+    {
+        $repo = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(Cours::class);
+                    
+        $found = $repo->findOneBy(array('id' => $idCours));
+        return $this->render('moodle/modifyExo.html.twig',[
+            'cours' => $found
+        ]);
+    }
+
 
     
 

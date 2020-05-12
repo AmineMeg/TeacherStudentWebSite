@@ -6,7 +6,7 @@
 		<div id="page_droite" style="float:right; width:75%;">
 			<div id="espace_titre" data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
 				<input class="retour" type="button" value="     RETOUR" onclick="goBack()">
-				<h2>Créer un nouveuc Cours!</h2>
+				<h2>Créez un nouveau Cours!</h2>
 			</div>
 			<div id="contenu_exercice_1">
 
@@ -15,7 +15,7 @@
 					{{ form_start(form) }}
 
 					{{form_row (form.titre, {
-                'label': 'Titre du cours',
+                'label': 'Titre de cours',
                 'attr':{
                     'placeholder' : 'Un titre sympa ?' 
                     }
@@ -32,6 +32,14 @@
 						Enregistrer</button>
 
 					{{form_end(form)}}
+				</div>
+				<div>
+				<h2> Vos cours </h2>
+
+				{% for class in courss %}
+   					<p><a href="/cours/{{ class.id }}">{{ class.titre }}</a></p>
+				{% endfor %}
+
 				</div>
 			</div>
 		</div>
