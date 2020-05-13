@@ -34,6 +34,11 @@
 
 					{{form_end(form)}}
 				</div>
+				<div>
+					{% for exo in exos %}
+						<p><a href="/cours/{{ id }}/{{ exo.id }}/modifyExo">{{ exo.titre }}</a></p>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>
