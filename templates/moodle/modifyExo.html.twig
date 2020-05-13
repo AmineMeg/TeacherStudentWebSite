@@ -2,6 +2,48 @@
 
 {% block body %}
 	
-<h2> PAGE MODIFICATION DE NOTE </h2>
+<h2> PAGE MODIFICATION DE <  > </h2>
+
+<div class="container">
+        <table>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="name"></td>
+                    <td><button id="remove" class="remove">-</button></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name"></td>
+                    <td><button id="remove" class="remove">-</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="addRow" class="remove">+ Add</button>
+        <button id="getValues" class="remove">Get Values</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+var html = '<tr><td><input type="text" name="name"></td><td><button class="remove">-</button></td></tr>';
+ 
+$(function() {
+    $('tbody').sortable();
+ 
+    $('#addRow').click(function(){
+        $('tbody').append(html);
+    });
+ 
+    $(document).on('click', '.remove', function() {
+        $(this).parents('tr').remove();
+    });
+ 
+    $('#getValues').click(function(){
+        var values = [];
+        $('input[name="name"]').each(function(i, elem){
+            values.push($(elem).val());
+        });
+        alert(values.join(', '));
+    });
+});
+</script>
 
 {% endblock %}
