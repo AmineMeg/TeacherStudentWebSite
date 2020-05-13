@@ -10,8 +10,15 @@
 	  <div id="contenu" align="left">
 	    <h3>Here's how it works !</h3>
 
-		 
+      {% if app.user %}
+      <p> you are logged in </p>
+      {% else %}
+      <p> you are not logged in </p>
+      {% endif %}
+
 	   </div>
 	 </div>
   </div>
+  
+
 {% endblock %}
