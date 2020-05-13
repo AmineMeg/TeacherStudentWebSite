@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/bases.css') }}">
         {% endblock %}
     </head>
     <body>
@@ -12,17 +12,22 @@
       <div id="page_gauche" style="float:left; width:25%;">
         <div id="espace_logo" style="text-align:center"><img src="/images/logo.png"></div>
         <br>
-        <div id="espace_profilepic" style="text-align:center"><img id="connect" src="/images/login.png"></div>
+        {% if app.user %}
+          <a href="{{path('logout')}}""><input id="deconnect" type="submit" value="  SE DECONNECTER"></a>
+        {% else %}
+          <div id="espace_profilepic" style="text-align:center"><img id="connect" src="/images/login.png"></div>
+        {% endif %}
         <div id="espace_connexion">
           <div id="box_menu">
             <ul>
 	            <li class="lien_about_us"><a href="/"><h3 class="liste_menu">&nbsp;&nbsp;&nbsp;ABOUT US</h3></a></li>
               <li class="icone_profil"><a href="/"><h3 id="mon_compte" class="liste_menu">&nbsp;&nbsp;&nbsp;MON COMPTE</h3></a></li>
-              <li class="lien_notes"><a href="/createCours"><h3 class="liste_menu">&nbsp;&nbsp;&nbsp;Cours</h3></a></li>
+              {% if app.user %}
+                <li class="lien_notes"><a href="/createCours"><h3 class="liste_menu">&nbsp;&nbsp;&nbsp;Cours</h3></a></li>
+              {% endif %}
           </div><br><br>
 
-	 
-          <input id="connect" type="submit" value="  SIGNIN/LOGIN">
+	
 
           <!-- The Modal -->
           <div id="myModal" class="modal">
@@ -39,7 +44,6 @@
               </div>
             </div>
           </div>
-	        <a href="{{path('logout')}}""><input id="deconnect" type="submit" value="  SE DECONNECTER"></a>
         
         </div>
       </div>
