@@ -333,6 +333,10 @@ h4
   margin-left: 25px;
 }
 
+.remove
+{
+  padding: 0px 20px;
+}
 /* forme des boutons d'inscription et de connexion */
 button
 {
@@ -365,6 +369,7 @@ button:hover
   background-color: #555555;
   color: white;
 }
+
 
 #page_droite
 {
