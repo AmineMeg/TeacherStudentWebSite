@@ -5,44 +5,115 @@
 <h2> PAGE MODIFICATION DE <  > </h2>
 
 <div class="container">
+    <div>
+    <h3>Ajouter une ligne</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="line" placeholder="contenu de la ligne"></td>
+                        <td><input type="text" name="order" placeholder="n°de ligne"></td>
+                        <td><button id="remove" class="remove">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="line" placeholder="contenu de la ligne"></td>
+                        <td><input type="text" name="order" placeholder="n° de ligne"></td>
+                        <td><button id="remove" class="remove">-</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="addRowLine" class="remove">Ajouter une nouvelle ligne</button>
+        </div>
+    <div>
+	<h3>Ajouter une solution</h3>
         <table>
-            <tbody>
+            <sbody>
                 <tr>
-                    <td><input type="text" name="name"></td>
-                    <td><button id="remove" class="remove">-</button></td>
+                    <td><input type="text" name="solution" placeholder="contenu de la solution"></td>
+                    <td>
+                        <button id="remove" class="remove">-</button>
+                    </td>
                 </tr>
-                <tr>
-                    <td><input type="text" name="name"></td>
-                    <td><button id="remove" class="remove">-</button></td>
-                </tr>
-            </tbody>
+            </sbody>
         </table>
-        <button id="addRow" class="remove">+ Add</button>
-        <button id="getValues" class="remove">Get Values</button>
+        <button id="addRowSolution" class="remove">Ajouter une nouvelle Solution</button>
     </div>
+    <button id="getValues" class="remove">Get Values</button>
+</div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
-var html = '<tr><td><input type="text" name="name"></td><td><button class="remove">-</button></td></tr>';
+var htmlLine = '<tr><td><input type="text" name="line" placeholder="contenu de la ligne"></td><td><input type="text" name="order" placeholder="n°de ligne"></td><td><button class="remove">-</button></td></tr>';
+var htmlSolution = '<tr><td><input type="text" name="solution" placeholder="contenu de la solution"></td><td><button class="remove">-</button></td></tr>';
  
 $(function() {
-    $('tbody').sortable();
+
+    $('container').sortable();
+
+
  
-    $('#addRow').click(function(){
-        $('tbody').append(html);
+    $('#addRowLine').click(function(){
+        $('tbody').append(htmlLine);
+    });
+
+    $('#addRowSolution').click(function(){
+        $('sbody').append(htmlSolution);
     });
  
     $(document).on('click', '.remove', function() {
         $(this).parents('tr').remove();
     });
  
-    $('#getValues').click(function(){
-        var values = [];
-        $('input[name="name"]').each(function(i, elem){
-            values.push($(elem).val());
+    $('#getValues').click(function(event){
+        
+        event.preventDefault();
+
+
+        var lines = [];
+        $('input[name="line"]').each(function(i, elem){
+            lines.push("'contenu': " + $(elem).val());
         });
-        alert(values.join(', '));
+        var solutions = [];
+        $('input[name="solution"]').each(function(i, elem){
+            solutions.push($(elem).val());
+        });
+        alert(lines.join(', '));
     });
+});
+
+$(document).ready(function () {
+
+    $("#search-form").submit(function (event) {
+
+        event.preventDefault();
+
+		// array
+        var search = {}
+		search["username"] = $("#username").val();
+		search["email"] = $("#email").val();
+
+		$.ajax({
+			type: "POST",
+			contentType: "application/json",
+			url: "/api/search",
+			data: JSON.stringify(search), // convert array to JSON
+			dataType: 'json',
+			cache: false,
+			timeout: 100000,
+			success: function (data) {
+
+				console.log("SUCCESS : ", data);
+
+			},
+			error: function (e) {
+
+				console.log("ERROR : ", e);
+
+			}
+		});
+
+    });
+
 });
 </script>
 
