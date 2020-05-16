@@ -91,7 +91,7 @@ class MoodleController extends AbstractController
                     'exos' => $repo_exos
                 ]);   
             } else {
-                return $this->redirectToRoute('moodle');
+                return $this->redirectToRoute('Exos');
             }
         }
     }
@@ -140,9 +140,41 @@ class MoodleController extends AbstractController
                     'courss' => $repo_cours
                 ]);
             } else {
-                return $this->redirectToRoute('moodle');
+                
+                return $this->redirectToRoute('Cours');
             }   
         }
+    }
+
+     /**
+     * @Route("/mesCours", name="Cours")
+     */
+    public function mesCours(Request $request, EntityManagerInterface $manager, UserInterface $user){
+        $repo = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(Cours::class)
+                    ->findAll();
+
+        return $this->render('moodle/mesCours.html.twig', [
+            'cours' => $repo
+        ]);
+    }
+
+    /**
+     * @Route("/mesExos", name="Exos")
+     */
+    public function mesExos(Cours $cours = null, Request $request, EntityManagerInterface $manager, UserInterface $user){
+        $repo = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(Exercice::class)
+                    ->findBy(array('cours' => $cours->getId()),
+                        NULL,
+                        NULL,
+                        NULL);
+
+        return $this->render('moodle/.html.twig', [
+            'exos' => $repo
+        ]);
     }
 
     /**

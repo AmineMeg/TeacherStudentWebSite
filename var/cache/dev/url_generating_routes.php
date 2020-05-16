@@ -18,6 +18,8 @@ return [
     'moodle' => [[], ['_controller' => 'App\\Controller\\MoodleController::index'], [], [['text', '/']], [], []],
     'createExo' => [['id'], ['_controller' => 'App\\Controller\\MoodleController::createExo'], [], [['text', '/createExo'], ['variable', '/', '[^/]++', 'id', true], ['text', '/cours']], [], []],
     'createCours' => [[], ['_controller' => 'App\\Controller\\MoodleController::createCours'], [], [['text', '/createCours']], [], []],
+    'Cours' => [[], ['_controller' => 'App\\Controller\\MoodleController::mesCours'], [], [['text', '/mesCours']], [], []],
+    'Exos' => [[], ['_controller' => 'App\\Controller\\MoodleController::mesExos'], [], [['text', '/mesExos']], [], []],
     'modifyExo' => [['idCours', 'idExercice'], ['_controller' => 'App\\Controller\\MoodleController::modifyExo'], [], [['text', '/modifyExo'], ['variable', '/', '[^/]++', 'idExercice', true], ['variable', '/', '[^/]++', 'idCours', true], ['text', '/cours']], [], []],
     'security' => [[], ['_controller' => 'App\\Controller\\SecurityController::index'], [], [['text', '/security']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::logIn'], [], [['text', '/login']], [], []],

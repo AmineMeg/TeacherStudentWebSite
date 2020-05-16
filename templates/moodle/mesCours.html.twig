@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header header-filter" data-parallax="true">
+
+        <div class="container">
+          
+            <h1 class="title"> La liste de tous les cours disponibles </h1>
+            {% for class in cours %}
+        {# <tr data-index="{{ class.titre }}" data-position="">
+            <td>
+                <a href="/cours/{{ class.id }}/createExo">{{ class.titre }}</a>
+            </td>
+        </tr> #}
+    <a href="/cours/{{ class.id }}/createExo">
+
+    <div class="row">
+        <div class="col-md-8">
+            
+            <!-- Tabs with icons on Card -->
+            <div class="card card-nav-tabs">
+                <div
+                    class="card-header card-header-primary">
+                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <h3>
+                                {{class.titre}}
+                            </h3>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body ">
+                    <div class="tab-content text-center">
+                        <div class="tab-pane active" id="profile">
+                            <p>
+                                {{class.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Tabs with icons on Card -->
+        </div>
+        
+    </div>
+</a>
+
+
+	
+{% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

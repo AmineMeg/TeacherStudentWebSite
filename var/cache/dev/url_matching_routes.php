@@ -15,6 +15,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'moodle', '_controller' => 'App\\Controller\\MoodleController::index'], null, null, null, false, false, null]],
         '/createCours' => [[['_route' => 'createCours', '_controller' => 'App\\Controller\\MoodleController::createCours'], null, null, null, false, false, null]],
+        '/mesCours' => [[['_route' => 'Cours', '_controller' => 'App\\Controller\\MoodleController::mesCours'], null, null, null, false, false, null]],
+        '/mesExos' => [[['_route' => 'Exos', '_controller' => 'App\\Controller\\MoodleController::mesExos'], null, null, null, false, false, null]],
         '/security' => [[['_route' => 'security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::logIn'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logOut'], null, null, null, false, false, null]],
