@@ -1,24 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <div id="page_entiere" style="width:100%;">
-    
-      <div id="page_droite" style="float:right; width:75%;">
-        <div id="espace_titre" data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding ="false">
-          <input class="retour" type="button" value="     RETOUR" onclick="goBack()">
-          <h2>WELCOME</h2> </div>
-	  <div id="contenu" align="left">
-	    <h3>Here's how it works !</h3>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/material-kit-master/assets/img/home.jpg')">
 
-      {% if app.user %}
-      <p> you are logged in </p>
-      {% else %}
-      <p> you are not logged in </p>
-      {% endif %}
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+          
 
-	   </div>
-	 </div>
-  </div>
+         
+            {% if app.user %}
+            <h1 class="title">Welcome to moodle, here's how it works !</h1>
+              <h4>   Go accede a tes cours pour commencer ! </h4>
+            {% else %}
+            <h1 class="title">Welcome to moodle, here's how it works !</h1>
+            <h4>Clique sur le menu pour te connecter ou t'inscrire </h4>
+            {% endif %}
+          </h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
   
 
 {% endblock %}

@@ -12,10 +12,17 @@ use App\Form\ExerciceType;
 use App\Repository\UserRepository;
 use App\Repository\ExerciceRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+
 
 class MoodleController extends AbstractController
 {
@@ -141,13 +148,36 @@ class MoodleController extends AbstractController
     /**
      * @Route("cours/{idCours}/{idExercice}/modifyExo", name="modifyExo")
      */
-    public function modifyExo(Request $request, EntityManagerInterface $manager)
+    public function modifyExo(Exercice $exercice = null, Request $request, EntityManagerInterface $manager)
     {
-
+        $data = json_decode($request->getContent());
+        var_dump($data);
+        
+        //no Request param in controller
+        
+        if (!$request->getContent()== NULL)
+        {//no ajax request, no play...
+            $this->redirectToRoute('moodle');
+        } else if (($request->request->get('lines') != NULL) || ($request->request->get('solutions'))) {
+            $lines = $request->request->get('lines');
+            var_dump($lines);
+            $solutions = $request->request->get('solutions');
+            
+            $lignes= json_decode($lines, true);
+            var_dump($lignes);
+            foreach($lignes as $line){
+                // this will throw a Symfony\Component\Serializer\Exception\ExtraAttributesException
+                // because "city" is not an attribute of the Person class
+                $ligne = $serializer->deserialize($line, Ligne::class, 'json', [AbstractNormalizer::ALLOW_EXTRA_ATTRIBUTES => false]);
+                $ligne -> setExercice($exercice);
+                var_dump("ta mere");
+                $manager->persist($ligne);
+                $manager->flush(); 
+            }
+            $this->redirectToRoute('moodle');
+        } 
+        var_dump("ici");
         return $this->render('moodle/modifyExo.html.twig');
+        
     }
-
-    
-
-
-    
+}

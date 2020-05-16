@@ -14,6 +14,7 @@ class LigneType extends AbstractType
         $builder
             ->add('contenu')
             ->add('exercice')
+            ->add('numero')
         ;
     }
 

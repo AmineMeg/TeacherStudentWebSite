@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div id="page_entiere" style="width:100%;">
+
+		<div id="page_droite" style="float:right; width:75%;">
+			<div id="espace_titre" data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
+				<input class="retour" type="button" value="     RETOUR" onclick="goBack()">
+				<h2>Créer un nouvel exercice dans le cours : 
+				{{titre}}!</h2>
+			</div>
+			<div id="contenu_exercice_1">
+
+				<div id="formulaire_creation_exercice" align="center">
+
+					{{ form_start(form) }}
+
+					{{form_row (form.titre, {
+                'label': 'Titre de l\'exercice',
+                'attr':{
+                    'placeholder' : 'Une titre accrocheur ?' 
+                    }
+                })}}
+
+					{{form_row (form.enonce, {
+                    'label': 'Enoncé',
+                    'attr':{
+                        'placeholder' : 'Alors la c\'est freestyle' 
+                        }
+                    })}}
+
+					<button type="submit" class="btn btn-succes">
+						Enregistrer</button>
+
+					{{form_end(form)}}
+				</div>
+				<div>
+					{% for exo in exos %}
+						<p><a href="/cours/{{ id }}/{{ exo.id }}/modifyExo">{{ exo.titre }}</a></p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

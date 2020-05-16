@@ -27,6 +27,11 @@ class Ligne
      */
     private $exercice;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $numero;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Ligne
     public function setExercice(?Exercice $exercice): self
     {
         $this->exercice = $exercice;
+
+        return $this;
+    }
+
+    public function getNumero(): ?string
+    {
+        return $this->numero;
+    }
+
+    public function setNumero(string $numero): self
+    {
+        $this->numero = $numero;
 
         return $this;
     }

@@ -1,66 +1,123 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="page_entiere" style="width:100%;">
-    
-        <div id="page_droite" style="float:right; width:75%;">
-            <div id="espace_titre" data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding ="false">
-               <input class="retour" type="button" value="     RETOUR" onclick="goBack()">
-               <h2>INSCRIVEZ-VOUS !</h2>
-            </div>
-            <div id="contenu_inscription">
-          
-	           <div id="formulaire_inscription" align="left" >
-            
-                {{ form_start(formSignup) }}
+<div class="page-header header-filter" style="background-image: url('/material-kit-master/assets/img/inscription.jpg'); background-size: cover; background-position: top center;">
 
-                {{form_row (formSignup.username, {
-                'label': 'Nom d\'utilisateur',
-                'attr':{
-                    'placeholder' : 'Nom d\'utilisateur' 
-                    }
-                })}}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+				<div class="card card-login">
+						<div class="card-header card-header-primary text-center">
+							<h4 class="card-title">Inscription</h4>
+						</div>
+						<div class="card-body">
+{{ form_start(formSignup) }}
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+									</span>
+								</div>
+                                {{form_row (formSignup.username, {
+                                                'attr':{
+                                                    'type' : "text",
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'Nom d\'utilisateur' 
+                                                    }
+                                                })}}
 
-                {{form_row (formSignup.email, {
-                    'label': 'Adresse email',
-                    'attr':{
-                        'placeholder' : 'Adresse email' 
-                        }
-                    })}}
-                {{form_row (formSignup.nom, {
-                    'label': 'Nom',
-                    'attr':{
-                        'placeholder' : 'Adresse email' 
-                        }
-                    })}}
-                {{form_row (formSignup.prenom, {
-                    'label': 'Prenom',
-                    'attr':{
-                        'placeholder' : 'Adresse email' 
-                        }
-                    })}}
-                {{form_row(formSignup.password, {
-                    'label': 'Mot de passe',
-                    'attr':{
-                        'placeholder' : 'Mot de passe' 
-                        }
-                    })}}
-                {{form_row(formSignup.confirm_password, {
-                    'label': 'Confirmer votre mot de passe',
-                    'attr':{
-                        'placeholder' : 'Confirmer votre mot de passe' 
-                        }
-                    })}}
-
-                
-                <button type="submit" class="btn btn-succes"> Enregistrer</button>
-
-                {{form_end(formSignup)}}
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+                                        <br>
+									</span>
+								</div>
+                                    {{form_row (formSignup.email, {
+                                                'attr':{
+                                                    'type' : "text",
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'Email' 
+                                                    }
+                                                })}}
 
 
-	            <a href="/login"><p>Already have an account ? Click here !</p></a>
-               </div>
-            </div>
-        </div>
-    </div>
+							</div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"></span>
+                                </div>
+                                {{form_row (formSignup.nom, {
+                                                'attr':{
+                                                    'type' : "text",
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'Nom' 
+                                                    }
+                                                })}}
+
+							</div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"></span>
+                                </div>
+                                {{form_row (formSignup.prenom, {
+                                                'attr':{
+                                                    'type' : "text",
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'Prenom' 
+                                                    }
+                                                })}}
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"></span>
+                                </div>
+                                {{form_row (formSignup.password, {
+                                                'attr':{
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'password' 
+                                                    }
+                                                })}}
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"></span>
+                                </div>
+                                {{form_row (formSignup.confirm_password, {
+                                                'attr':{
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'confirm password' 
+                                                    }
+                                                })}}
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"></span>
+                                </div>
+                            {{form_row (formSignup.isProf, {
+                                'label': 'Etes vous un prof',
+                                                'attr':{
+                                                    'class' : "form-controle",
+                                                    'placeholder' : 'confirm password' 
+                                                    }
+                                                })}}
+
+                            </div>
+						<div class="footer text-center">
+							<button type="submit" class="btn btn-succes">
+                                    Connexion
+                            </button>
+						</div>
+{{ form_end(formSignup) }}
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 {% endblock %}
