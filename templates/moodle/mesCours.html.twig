@@ -1,18 +1,73 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="page-header header-filter" data-parallax="true">
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/material-kit-master/assets/img/cours.jpg');">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h1 class="title"> La liste de tous les cours disponibles </h1>
+			</div>
+		</div>
+	</div>
+</div>
 
-        <div class="container">
-          
-            <h1 class="title"> La liste de tous les cours disponibles </h1>
+
+<div class="row-md-6">
+	<div
+		class="col">
+
+		<!-- Tabs with icons on Card -->
+		<div class="card card-nav-tabs">
+			<div
+				class="card-header card-header-primary">
+				<!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+				<div class="nav-tabs-navigation">
+					<div class="nav-tabs-wrapper">
+						<h3>
+							Recherchez un cours!
+						</h3>
+
+
+					</div>
+				</div>
+
+			</div>
+			<div class="card-body ">
+				<div class="tab-content text-center">
+					<div class="tab-pane active" id="profile">
+						<p>
+							<div id="formulaire_recheche" align="center">
+<div class="form-group bmd-form-group">
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="material-icons">group</i>
+			</span>
+		</div>
+		<input type="text" class="form-control" placeholder="With Material Icons">
+	</div>
+</div></div>
+
+
+
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Tabs with icons on Card -->
+	</div>
+
+</div>
+
+
             {% for class in cours %}
         {# <tr data-index="{{ class.titre }}" data-position="">
             <td>
                 <a href="/cours/{{ class.id }}/createExo">{{ class.titre }}</a>
             </td>
         </tr> #}
-    <a href="/cours/{{ class.id }}/createExo">
+    <a href="/cours/{{ class.id }}/mesExos">
 
     <div class="row">
         <div class="col-md-8">

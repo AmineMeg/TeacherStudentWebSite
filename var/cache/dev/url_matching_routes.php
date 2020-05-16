@@ -16,7 +16,6 @@ return [
         '/' => [[['_route' => 'moodle', '_controller' => 'App\\Controller\\MoodleController::index'], null, null, null, false, false, null]],
         '/createCours' => [[['_route' => 'createCours', '_controller' => 'App\\Controller\\MoodleController::createCours'], null, null, null, false, false, null]],
         '/mesCours' => [[['_route' => 'Cours', '_controller' => 'App\\Controller\\MoodleController::mesCours'], null, null, null, false, false, null]],
-        '/mesExos' => [[['_route' => 'Exos', '_controller' => 'App\\Controller\\MoodleController::mesExos'], null, null, null, false, false, null]],
         '/security' => [[['_route' => 'security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::logIn'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logOut'], null, null, null, false, false, null]],
@@ -41,7 +40,11 @@ return [
                 .')'
                 .'|/cours/([^/]++)/(?'
                     .'|createExo(*:197)'
-                    .'|([^/]++)/modifyExo(*:223)'
+                    .'|mesExos(*:212)'
+                    .'|([^/]++)/(?'
+                        .'|exercice(*:240)'
+                        .'|modifyExo(*:257)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
@@ -54,7 +57,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         197 => [[['_route' => 'createExo', '_controller' => 'App\\Controller\\MoodleController::createExo'], ['id'], null, null, false, false, null]],
-        223 => [
+        212 => [[['_route' => 'Exos', '_controller' => 'App\\Controller\\MoodleController::mesExos'], ['id'], null, null, false, false, null]],
+        240 => [[['_route' => 'Exercice', '_controller' => 'App\\Controller\\MoodleController::exercice'], ['idCours', 'idExercice'], null, null, false, false, null]],
+        257 => [
             [['_route' => 'modifyExo', '_controller' => 'App\\Controller\\MoodleController::modifyExo'], ['idCours', 'idExercice'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

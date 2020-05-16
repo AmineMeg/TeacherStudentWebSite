@@ -37,6 +37,12 @@ class LigneEleve
      */
     private $numero;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $eleve;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class LigneEleve
     public function setNumero(string $numero): self
     {
         $this->numero = $numero;
+
+        return $this;
+    }
+
+    public function getEleve(): ?User
+    {
+        return $this->eleve;
+    }
+
+    public function setEleve(?User $eleve): self
+    {
+        $this->eleve = $eleve;
 
         return $this;
     }

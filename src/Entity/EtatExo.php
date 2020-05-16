@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,20 +22,16 @@ class EtatExo
     private $etat;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Exercice", mappedBy="etatExo")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Exercice", inversedBy="etatExos")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $exercice;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="etatExo")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $eleve;
-
-    public function __construct()
-    {
-        $this->exercice = new ArrayCollection();
-        $this->eleve = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -56,64 +50,26 @@ class EtatExo
         return $this;
     }
 
-    /**
-     * @return Collection|Exercice[]
-     */
-    public function getExercice(): Collection
+    public function getExercice(): ?Exercice
     {
         return $this->exercice;
     }
 
-    public function addExercice(Exercice $exercice): self
+    public function setExercice(?Exercice $exercice): self
     {
-        if (!$this->exercice->contains($exercice)) {
-            $this->exercice[] = $exercice;
-            $exercice->setEtatExo($this);
-        }
+        $this->exercice = $exercice;
 
         return $this;
     }
 
-    public function removeExercice(Exercice $exercice): self
-    {
-        if ($this->exercice->contains($exercice)) {
-            $this->exercice->removeElement($exercice);
-            // set the owning side to null (unless already changed)
-            if ($exercice->getEtatExo() === $this) {
-                $exercice->setEtatExo(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getEleve(): Collection
+    public function getEleve(): ?User
     {
         return $this->eleve;
     }
 
-    public function addEleve(User $eleve): self
+    public function setEleve(?User $eleve): self
     {
-        if (!$this->eleve->contains($eleve)) {
-            $this->eleve[] = $eleve;
-            $eleve->setEtatExo($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEleve(User $eleve): self
-    {
-        if ($this->eleve->contains($eleve)) {
-            $this->eleve->removeElement($eleve);
-            // set the owning side to null (unless already changed)
-            if ($eleve->getEtatExo() === $this) {
-                $eleve->setEtatExo(null);
-            }
-        }
+        $this->eleve = $eleve;
 
         return $this;
     }

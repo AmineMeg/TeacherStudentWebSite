@@ -6,17 +6,19 @@ use DateTime;
 use App\Entity\User;
 use App\Entity\Cours;
 use App\Entity\Ligne;
+use App\Entity\EtatExo;
 use App\Form\CoursType;
 use App\Entity\Exercice;
+use App\Entity\LigneEleve;
 use App\Form\ExerciceType;
 use App\Repository\UserRepository;
 use App\Repository\ExerciceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
-
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -161,10 +163,14 @@ class MoodleController extends AbstractController
     }
 
     /**
-     * @Route("/mesExos", name="Exos")
+     * @Route("cours/{id}/mesExos", name="Exos")
      */
     public function mesExos(Cours $cours = null, Request $request, EntityManagerInterface $manager, UserInterface $user){
-        $repo = $this->getDoctrine()
+
+        if ($cours == NULL){
+            return $this->redirectToRoute('Cours');
+        }else{
+            $repo = $this->getDoctrine()
                     ->getManager()
                     ->getRepository(Exercice::class)
                     ->findBy(array('cours' => $cours->getId()),
@@ -172,10 +178,103 @@ class MoodleController extends AbstractController
                         NULL,
                         NULL);
 
-        return $this->render('moodle/.html.twig', [
-            'exos' => $repo
+        return $this->render('moodle/mesExos.html.twig', [
+            'exos' => $repo,
+            'id' => $cours->getId(),
         ]);
+        }
+        
     }
+
+        /**
+     * @Route("cours/{idCours}/{idExercice}/exercice", name="Exercice")
+     */
+    public function exercice($idCours, $idExercice, Request $request, EntityManagerInterface $manager, UserInterface $user){
+        
+        $cours = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(Cours::class)
+                    ->findBy(array('id' => $idCours));
+        $exercice = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(Exercice::class)
+                    ->findBy(array('id' => $idExercice));
+        if ($exercice == NULL){
+            return $this->redirectToRoute('Exos');
+        }else{
+
+             $repo = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository(User::class);
+                    
+            $found = $repo->findOneBy(array('username' => $user->getUsername()));
+            
+            if (!($found->getIsProf())){
+
+                $check = $this->getDoctrine()
+                                ->getManager()
+                                ->getRepository(EtatExo::class)
+                                ->findBy(array('exercice' => $exercice, 'eleve' => $user));
+                            
+                    
+                    if ($check==NULL){
+                        $etat = new EtatExo();
+                        $etat->setEtat("0");
+                        $etat->setExercice($exercice[0]);
+                        $etat->setEleve($user);
+                        $manager->persist($etat);
+                        $manager->flush();
+                    
+                        
+                        if($exercice[0]->getEtat() == "1"){
+                            $lignesM = $this->getDoctrine()
+                                ->getManager()
+                                ->getRepository(Ligne::class)
+                                ->findBy(array('exercice' => $exercice[0]->getId()));
+                            
+                            foreach($lignesM as $ligne){
+                                $ligneEtu = new LigneEleve();
+                                $ligneEtu->setContenu($ligne->getContenu());
+                                $ligneEtu->setExercice($ligne->getExercice());
+                                $ligneEtu->setNumero($ligne->getNumero());
+                                $ligneEtu->setPosition(0);
+                                $ligneEtu->setEleve($user);
+                                
+                                $manager->persist($ligneEtu);
+                                $manager->flush();
+                                
+                            }
+
+                            $lignes = $this->getDoctrine()
+                                ->getManager()
+                                ->getRepository(LigneEleve::class)
+                                ->findBy(array('eleve' => $user));
+                            //Ton code ici
+
+                            return $this->render('moodle/monExo.html.twig');
+                        }
+                    }
+                    return $this->render('moodle/home.html.twig');       
+            } else {
+                return $this->render('moodle/home.html.twig');
+            }
+            $lignes = $this->getDoctrine()
+                                ->getManager()
+                                ->getRepository(LigneEleve::class)
+                                ->findBy(array('eleve' => $user));
+                                //ton code ici
+
+            return $this->render('moodle/mosExos.html.twig');
+               
+        }
+                
+        return $this->render('moodle/home.html.twig');
+                                   
+    }
+
+
+
+    
 
     /**
      * @Route("cours/{idCours}/{idExercice}/modifyExo", name="modifyExo")

@@ -60,14 +60,15 @@ class Exercice
     private $solutions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\EtatExo", inversedBy="exercice")
+     * @ORM\OneToMany(targetEntity="App\Entity\EtatExo", mappedBy="exercice", orphanRemoval=true)
      */
-    private $etatExo;
+    private $etatExos;
 
     public function __construct()
     {
         $this->lignes = new ArrayCollection();
         $this->solutions = new ArrayCollection();
+        $this->etatExos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -209,14 +210,33 @@ class Exercice
         return $this;
     }
 
-    public function getEtatExo(): ?EtatExo
+    /**
+     * @return Collection|EtatExo[]
+     */
+    public function getEtatExos(): Collection
     {
-        return $this->etatExo;
+        return $this->etatExos;
     }
 
-    public function setEtatExo(?EtatExo $etatExo): self
+    public function addEtatExo(EtatExo $etatExo): self
     {
-        $this->etatExo = $etatExo;
+        if (!$this->etatExos->contains($etatExo)) {
+            $this->etatExos[] = $etatExo;
+            $etatExo->setExercice($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtatExo(EtatExo $etatExo): self
+    {
+        if ($this->etatExos->contains($etatExo)) {
+            $this->etatExos->removeElement($etatExo);
+            // set the owning side to null (unless already changed)
+            if ($etatExo->getExercice() === $this) {
+                $etatExo->setExercice(null);
+            }
+        }
 
         return $this;
     }
