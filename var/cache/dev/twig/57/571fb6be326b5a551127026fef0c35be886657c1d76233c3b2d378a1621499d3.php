@@ -30,7 +30,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
-            'javascripts' => [$this, 'block_javascripts'],
+            'javascript' => [$this, 'block_javascript'],
         ];
     }
 
@@ -46,98 +46,133 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         // line 1
         echo "<!DOCTYPE html>
 <html>
-\t<head>
-\t\t<meta charset=\"UTF-8\">
-\t\t<title>
-\t\t\t";
-        // line 6
+    <head>
+        <meta charset=\"UTF-8\">
+        <title>";
+        // line 5
         $this->displayBlock('title', $context, $blocks);
-        // line 8
-        echo "\t\t</title>
-\t\t";
-        // line 9
+        echo "</title>
+        ";
+        // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
-        echo "\t</head>
-\t<body>
+        // line 10
+        echo "    </head>
 
-\t\t<div id=\"page_gauche\" style=\"float:left; width:25%;\">
-\t\t\t<div id=\"espace_logo\" style=\"text-align:center\"><img src=\"/images/logo.png\"></div>
-\t\t\t<br>
-\t\t\t<div id=\"espace_profilepic\" style=\"text-align:center\"><img id=\"connect\" src=\"/images/login.png\"></div>
-\t\t\t<div id=\"espace_connexion\">
-\t\t\t\t<div id=\"box_menu\">
-\t\t\t\t\t<ul>
-\t\t\t\t\t\t<li class=\"lien_about_us\">
-\t\t\t\t\t\t\t<a href=\"/\">
-\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;ABOUT US</h3>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"icone_profil\">
-\t\t\t\t\t\t\t<a href=\"/\">
-\t\t\t\t\t\t\t\t<h3 id=\"mon_compte\" class=\"liste_menu\">&nbsp;&nbsp;&nbsp;MON COMPTE</h3>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"lien_notes\">
-\t\t\t\t\t\t\t<a href=\"";
-        // line 33
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("createCours");
+
+<header class=\"landing-page sidebar-collapse\">
+  <nav class=\"navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg\" color-on-scroll=\"100\" id=\"sectionsNav\">
+    <div class=\"container\">
+      <div class=\"navbar-translate\">
+        <a class=\"navbar-brand\" href=\"";
+        // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("moodle");
         echo "\">
-\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;Cours</h3>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t</ul>
-\t\t\t\t</div><br><br>
+
+          <div class=\"col-sm-2\">
+            <img src=\"/images/logo.png\" alt=\"Rounded Image\" class=\"rounded img-fluide\" height=\"550%\" width=\"550%\">
+          </div>
+
+        </a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+          <span class=\"sr-only\">Toggle navigation</span>
+          <span class=\"navbar-toggler-icon\"></span>
+          <span class=\"navbar-toggler-icon\"></span>
+          <span class=\"navbar-toggler-icon\"></span>
+        </button>
+      </div>
 
 
-\t\t\t\t\t<input
-\t\t\t\t\tid=\"connect\" type=\"submit\" value=\"  SIGNIN/LOGIN\">
 
-\t\t\t\t\t<!-- The Modal -->
-\t\t\t\t\t<div
-\t\t\t\t\t\tid=\"myModal\" class=\"modal\">
+      <div class=\"collapse navbar-collapse\">
+        <ul class=\"navbar-nav ml-auto\">
+          <li class=\"dropdown nav-item\">
+            ";
+        // line 37
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "user", [], "any", false, false, false, 37)) {
+            // line 38
+            echo "            <a href=\"#\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">
+              <i class=\"material-icons\">Inscription / Connexion</i>
+            </a>
+            <div class=\"dropdown-menu dropdown-with-icons\">
+            <a href=\"";
+            // line 42
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("signup");
+            echo "\" class=\"dropdown-item\">
 
-\t\t\t\t\t\t<!-- Modal content -->
-\t\t\t\t\t\t<div class=\"modal-content\">
-\t\t\t\t\t\t\t<div class=\"modal-header\">
-\t\t\t\t\t\t\t\t<span class=\"close\">&times;</span>
-\t\t\t\t\t\t\t\t<h3>REJOIGNEZ-NOUS !</h3>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"modal-body\" style=\"text-align:center;\">
-\t\t\t\t\t\t\t\t<div class=\"connexion_box\">
-\t\t\t\t\t\t\t\t\t<h4>Déjà  inscrit ? Connectez-vous !</h4>
-\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 57
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\">
-\t\t\t\t\t\t\t\t\t\t<button type=\"button\">connectez-vous</button>
-\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t</br>
-\t\t\t\t\t\t\t</br>
-\t\t\t\t\t\t</br>
-\t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"inscription_box\">
-\t\t\t\t\t\t<h4>Nouveau ? Créeez votre compte dés maintenant !</h4>
-\t\t\t\t\t\t<a href=\"";
-        // line 66
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("signup");
-        echo "\">
-\t\t\t\t\t\t\t<button type=\"button\">inscrivez-vous</button>
-\t\t\t\t\t\t</a>
-\t\t\t\t\t</br>
-\t\t\t\t</br>
-\t\t\t</br>
-\t\t</body>
-\t</html>
-</br></div></div></div></div><a href=\"";
-        // line 74
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-        echo "\" \"><input id=\"deconnect\" type=\"submit\" value=\"  SE DECONNECTER\"></a></div></div>";
-        $this->displayBlock('body', $context, $blocks);
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 89
-        echo "</body></html>
+                <i class=\"material-icons\">Inscrit-toi</i>
+              </a>
+              <a href=\"";
+            // line 46
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
+            echo "\" class=\"dropdown-item\">
+
+                <i class=\"material-icons\">Connecte-toi</i>
+              </a>
+            </div>
 ";
+        } else {
+            // line 52
+            echo "
+<li class=\"dropdown nav-item\">
+
+              <a href=\"/monCompte\" class=\"nav-link\">
+
+                <i class=\"material-icons\">Mon espace</i>
+              </a>
+</li>
+<li class=\"dropdown nav-item\">
+
+              <a href=\"/createCours\" class=\"nav-link\">
+
+                <i class=\"material-icons\">Cours</i>
+              </a>
+
+</li>
+<li class=\"dropdown nav-item\">
+              <a href=\"";
+            // line 69
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\" class=\"nav-link\">
+
+              <i class=\"material-icons\">Deconnexion</i>
+            </a>
+     </li>
+            ";
+        }
+        // line 75
+        echo "          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+";
+        // line 83
+        $this->displayBlock('body', $context, $blocks);
+        // line 86
+        echo "
+
+<!--   Core JS Files   -->
+<script src=\"/material-kit-master/assets/js/core/jquery.min.js\" type=\"text/javascript\"></script>
+
+<script src=\"/material-kit-master/assets/js/core/popper.min.js\" type=\"text/javascript\"></script>
+<script src=\"/material-kit-master/assets/js/core/bootstrap-material-design.min.js\" type=\"text/javascript\"></script>
+<script src=\"/material-kit-master/assets/js/plugins/moment.min.js\"></script>
+<!--\tPlugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src=\"/material-kit-master/assets/js/plugins/bootstrap-datetimepicker.js\" type=\"text/javascript\"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src=\"/material-kit-master/assets/js/plugins/nouislider.min.js\" type=\"text/javascript\"></script>
+<!--  Google Maps Plugin    -->
+<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+<script src=\"/material-kit-master/assets/js/material-kit.js?v=2.0.7\" type=\"text/javascript\"></script>
+";
+        // line 101
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 104
+        echo "
+</html>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -146,7 +181,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 6
+    // line 5
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,8 +191,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!
-\t\t\t";
+        echo "Welcome!";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -166,7 +200,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 9
+    // line 6
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -176,11 +210,10 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 10
-        echo "\t\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/base.css"), "html", null, true);
-        echo "\">
-\t\t";
+        // line 7
+        echo "              <link href=\"\\material-kit-master\\assets\\css\\material-kit.css\" rel=\"stylesheet\"/>
+              
+        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -189,7 +222,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 74
+    // line 83
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -199,6 +232,9 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 84
+        echo "
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -207,31 +243,19 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    public function block_javascripts($context, array $blocks = [])
+    // line 101
+    public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
-        echo "<script>var modal = document.getElementById('myModal');
-var btn = document.getElementById(\"connect\");
-var span = document.getElementsByClassName(\"close\")[0];
-btn.onclick = function () {
-modal.style.display = \"block\";
-}
-span.onclick = function () {
-modal.style.display = \"none\";
-}
-window.onclick = function (event) {
-if (event.target == modal) {
-modal.style.display = \"none\";
-}
-}</script><script>function goBack() {
-window.history.back()
-}</script>";
+        // line 102
+        echo "
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -252,100 +276,115 @@ window.history.back()
 
     public function getDebugInfo()
     {
-        return array (  193 => 74,  180 => 10,  170 => 9,  150 => 6,  139 => 89,  134 => 74,  123 => 66,  111 => 57,  84 => 33,  61 => 12,  59 => 9,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  257 => 102,  247 => 101,  236 => 84,  226 => 83,  214 => 7,  204 => 6,  185 => 5,  174 => 104,  172 => 101,  155 => 86,  153 => 83,  143 => 75,  134 => 69,  115 => 52,  106 => 46,  99 => 42,  93 => 38,  91 => 37,  68 => 17,  59 => 10,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 <html>
-\t<head>
-\t\t<meta charset=\"UTF-8\">
-\t\t<title>
-\t\t\t{% block title %}Welcome!
-\t\t\t{% endblock %}
-\t\t</title>
-\t\t{% block stylesheets %}
-\t\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('css/base.css') }}\">
-\t\t{% endblock %}
-\t</head>
-\t<body>
-
-\t\t<div id=\"page_gauche\" style=\"float:left; width:25%;\">
-\t\t\t<div id=\"espace_logo\" style=\"text-align:center\"><img src=\"/images/logo.png\"></div>
-\t\t\t<br>
-\t\t\t<div id=\"espace_profilepic\" style=\"text-align:center\"><img id=\"connect\" src=\"/images/login.png\"></div>
-\t\t\t<div id=\"espace_connexion\">
-\t\t\t\t<div id=\"box_menu\">
-\t\t\t\t\t<ul>
-\t\t\t\t\t\t<li class=\"lien_about_us\">
-\t\t\t\t\t\t\t<a href=\"/\">
-\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;ABOUT US</h3>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"icone_profil\">
-\t\t\t\t\t\t\t<a href=\"/\">
-\t\t\t\t\t\t\t\t<h3 id=\"mon_compte\" class=\"liste_menu\">&nbsp;&nbsp;&nbsp;MON COMPTE</h3>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"lien_notes\">
-\t\t\t\t\t\t\t<a href=\"{{path('createCours')}}\">
-\t\t\t\t\t\t\t\t<h3 class=\"liste_menu\">&nbsp;&nbsp;&nbsp;Cours</h3>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t</ul>
-\t\t\t\t</div><br><br>
+    <head>
+        <meta charset=\"UTF-8\">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+              <link href=\"\\material-kit-master\\assets\\css\\material-kit.css\" rel=\"stylesheet\"/>
+              
+        {% endblock %}
+    </head>
 
 
-\t\t\t\t\t<input
-\t\t\t\t\tid=\"connect\" type=\"submit\" value=\"  SIGNIN/LOGIN\">
+<header class=\"landing-page sidebar-collapse\">
+  <nav class=\"navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg\" color-on-scroll=\"100\" id=\"sectionsNav\">
+    <div class=\"container\">
+      <div class=\"navbar-translate\">
+        <a class=\"navbar-brand\" href=\"{{path('moodle')}}\">
 
-\t\t\t\t\t<!-- The Modal -->
-\t\t\t\t\t<div
-\t\t\t\t\t\tid=\"myModal\" class=\"modal\">
+          <div class=\"col-sm-2\">
+            <img src=\"/images/logo.png\" alt=\"Rounded Image\" class=\"rounded img-fluide\" height=\"550%\" width=\"550%\">
+          </div>
 
-\t\t\t\t\t\t<!-- Modal content -->
-\t\t\t\t\t\t<div class=\"modal-content\">
-\t\t\t\t\t\t\t<div class=\"modal-header\">
-\t\t\t\t\t\t\t\t<span class=\"close\">&times;</span>
-\t\t\t\t\t\t\t\t<h3>REJOIGNEZ-NOUS !</h3>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"modal-body\" style=\"text-align:center;\">
-\t\t\t\t\t\t\t\t<div class=\"connexion_box\">
-\t\t\t\t\t\t\t\t\t<h4>Déjà  inscrit ? Connectez-vous !</h4>
-\t\t\t\t\t\t\t\t\t<a href=\"{{path('login')}}\">
-\t\t\t\t\t\t\t\t\t\t<button type=\"button\">connectez-vous</button>
-\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t</br>
-\t\t\t\t\t\t\t</br>
-\t\t\t\t\t\t</br>
-\t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"inscription_box\">
-\t\t\t\t\t\t<h4>Nouveau ? Créeez votre compte dés maintenant !</h4>
-\t\t\t\t\t\t<a href=\"{{path('signup')}}\">
-\t\t\t\t\t\t\t<button type=\"button\">inscrivez-vous</button>
-\t\t\t\t\t\t</a>
-\t\t\t\t\t</br>
-\t\t\t\t</br>
-\t\t\t</br>
-\t\t</body>
-\t</html>
-</br></div></div></div></div><a href=\"{{path('logout')}}\" \"><input id=\"deconnect\" type=\"submit\" value=\"  SE DECONNECTER\"></a></div></div>{% block body %}{% endblock %}{% block javascripts %}<script>var modal = document.getElementById('myModal');
-var btn = document.getElementById(\"connect\");
-var span = document.getElementsByClassName(\"close\")[0];
-btn.onclick = function () {
-modal.style.display = \"block\";
-}
-span.onclick = function () {
-modal.style.display = \"none\";
-}
-window.onclick = function (event) {
-if (event.target == modal) {
-modal.style.display = \"none\";
-}
-}</script><script>function goBack() {
-window.history.back()
-}</script>{% endblock %}</body></html>
-", "base.html.twig", "C:\\Users\\kreek\\OneDrive\\Documents\\Cours\\2019\\S6\\PrograWeb\\ProjetFinal\\Moodle\\templates\\base.html.twig");
+        </a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+          <span class=\"sr-only\">Toggle navigation</span>
+          <span class=\"navbar-toggler-icon\"></span>
+          <span class=\"navbar-toggler-icon\"></span>
+          <span class=\"navbar-toggler-icon\"></span>
+        </button>
+      </div>
+
+
+
+      <div class=\"collapse navbar-collapse\">
+        <ul class=\"navbar-nav ml-auto\">
+          <li class=\"dropdown nav-item\">
+            {% if not app.user %}
+            <a href=\"#\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">
+              <i class=\"material-icons\">Inscription / Connexion</i>
+            </a>
+            <div class=\"dropdown-menu dropdown-with-icons\">
+            <a href=\"{{path('signup')}}\" class=\"dropdown-item\">
+
+                <i class=\"material-icons\">Inscrit-toi</i>
+              </a>
+              <a href=\"{{path('login')}}\" class=\"dropdown-item\">
+
+                <i class=\"material-icons\">Connecte-toi</i>
+              </a>
+            </div>
+{% else %}
+
+<li class=\"dropdown nav-item\">
+
+              <a href=\"/monCompte\" class=\"nav-link\">
+
+                <i class=\"material-icons\">Mon espace</i>
+              </a>
+</li>
+<li class=\"dropdown nav-item\">
+
+              <a href=\"/createCours\" class=\"nav-link\">
+
+                <i class=\"material-icons\">Cours</i>
+              </a>
+
+</li>
+<li class=\"dropdown nav-item\">
+              <a href=\"{{path('logout')}}\" class=\"nav-link\">
+
+              <i class=\"material-icons\">Deconnexion</i>
+            </a>
+     </li>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+{% block body %}
+
+{% endblock %}
+
+
+<!--   Core JS Files   -->
+<script src=\"/material-kit-master/assets/js/core/jquery.min.js\" type=\"text/javascript\"></script>
+
+<script src=\"/material-kit-master/assets/js/core/popper.min.js\" type=\"text/javascript\"></script>
+<script src=\"/material-kit-master/assets/js/core/bootstrap-material-design.min.js\" type=\"text/javascript\"></script>
+<script src=\"/material-kit-master/assets/js/plugins/moment.min.js\"></script>
+<!--\tPlugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src=\"/material-kit-master/assets/js/plugins/bootstrap-datetimepicker.js\" type=\"text/javascript\"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src=\"/material-kit-master/assets/js/plugins/nouislider.min.js\" type=\"text/javascript\"></script>
+<!--  Google Maps Plugin    -->
+<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+<script src=\"/material-kit-master/assets/js/material-kit.js?v=2.0.7\" type=\"text/javascript\"></script>
+{% block javascript %}
+
+{% endblock %}
+
+</html>", "base.html.twig", "C:\\Users\\kreek\\OneDrive\\Documents\\Cours\\2019\\S6\\PrograWeb\\ProjetFinal\\newMoodle\\moodle\\templates\\base.html.twig");
     }
 }

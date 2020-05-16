@@ -157,6 +157,11 @@ class User implements UserInterface
      */
     private $cours;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\EtatExo", inversedBy="eleve")
+     */
+    private $etatExo;
+
     public function __construct()
     {
         $this->exercices = new ArrayCollection();
@@ -229,6 +234,18 @@ class User implements UserInterface
                 $cour->setAuteur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEtatExo(): ?EtatExo
+    {
+        return $this->etatExo;
+    }
+
+    public function setEtatExo(?EtatExo $etatExo): self
+    {
+        $this->etatExo = $etatExo;
 
         return $this;
     }

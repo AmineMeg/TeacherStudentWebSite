@@ -65,19 +65,38 @@ class __TwigTemplate_eeab992b325455d8bd810891c5d4a91affae8975c14c7acdd35dd5c04f6
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "  <div id=\"page_entiere\" style=\"width:100%;\">
-    
-      <div id=\"page_droite\" style=\"float:right; width:75%;\">
-        <div id=\"espace_titre\" data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\" data-update-page-padding =\"false\">
-          <input class=\"retour\" type=\"button\" value=\"     RETOUR\" onclick=\"goBack()\">
-          <h2>WELCOME</h2> </div>
-\t  <div id=\"contenu\" align=\"left\">
-\t    <h3>Here's how it works !</h3>
+        echo "<div class=\"page-header header-filter\" data-parallax=\"true\" style=\"background-image: url('/material-kit-master/assets/img/home.jpg')\">
 
-\t\t 
-\t   </div>
-\t </div>
-  </div>
+            <div class=\"container\">
+              <div class=\"row\">
+                <div class=\"col-md-6\">
+          
+
+         
+            ";
+        // line 12
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
+            // line 13
+            echo "            <h1 class=\"title\">Welcome to moodle, here's how it works !</h1>
+              <h4>   Go accede a tes cours pour commencer ! </h4>
+            ";
+        } else {
+            // line 16
+            echo "            <h1 class=\"title\">Welcome to moodle, here's how it works !</h1>
+            <h4>Clique sur le menu pour te connecter ou t'inscrire </h4>
+            ";
+        }
+        // line 19
+        echo "          </h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -99,7 +118,7 @@ class __TwigTemplate_eeab992b325455d8bd810891c5d4a91affae8975c14c7acdd35dd5c04f6
 
     public function getDebugInfo()
     {
-        return array (  68 => 4,  58 => 3,  35 => 1,);
+        return array (  90 => 19,  85 => 16,  80 => 13,  78 => 12,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -107,20 +126,32 @@ class __TwigTemplate_eeab992b325455d8bd810891c5d4a91affae8975c14c7acdd35dd5c04f6
         return new Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-  <div id=\"page_entiere\" style=\"width:100%;\">
-    
-      <div id=\"page_droite\" style=\"float:right; width:75%;\">
-        <div id=\"espace_titre\" data-role=\"header\" data-position=\"fixed\" data-tap-toggle=\"false\" data-update-page-padding =\"false\">
-          <input class=\"retour\" type=\"button\" value=\"     RETOUR\" onclick=\"goBack()\">
-          <h2>WELCOME</h2> </div>
-\t  <div id=\"contenu\" align=\"left\">
-\t    <h3>Here's how it works !</h3>
+<div class=\"page-header header-filter\" data-parallax=\"true\" style=\"background-image: url('/material-kit-master/assets/img/home.jpg')\">
 
-\t\t 
-\t   </div>
-\t </div>
-  </div>
+            <div class=\"container\">
+              <div class=\"row\">
+                <div class=\"col-md-6\">
+          
+
+         
+            {% if app.user %}
+            <h1 class=\"title\">Welcome to moodle, here's how it works !</h1>
+              <h4>   Go accede a tes cours pour commencer ! </h4>
+            {% else %}
+            <h1 class=\"title\">Welcome to moodle, here's how it works !</h1>
+            <h4>Clique sur le menu pour te connecter ou t'inscrire </h4>
+            {% endif %}
+          </h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  
+
 {% endblock %}
-", "moodle/home.html.twig", "C:\\Users\\kreek\\OneDrive\\Documents\\Cours\\2019\\S6\\PrograWeb\\ProjetFinal\\Moodle\\templates\\moodle\\home.html.twig");
+", "moodle/home.html.twig", "C:\\Users\\kreek\\OneDrive\\Documents\\Cours\\2019\\S6\\PrograWeb\\ProjetFinal\\newMoodle\\moodle\\templates\\moodle\\home.html.twig");
     }
 }

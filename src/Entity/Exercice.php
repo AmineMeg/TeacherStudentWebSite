@@ -59,6 +59,11 @@ class Exercice
      */
     private $solutions;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\EtatExo", inversedBy="exercice")
+     */
+    private $etatExo;
+
     public function __construct()
     {
         $this->lignes = new ArrayCollection();
@@ -200,6 +205,18 @@ class Exercice
                 $solution->setExercice(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEtatExo(): ?EtatExo
+    {
+        return $this->etatExo;
+    }
+
+    public function setEtatExo(?EtatExo $etatExo): self
+    {
+        $this->etatExo = $etatExo;
 
         return $this;
     }
